@@ -95,6 +95,372 @@ Supervised by Rob Hyndman and George Athanasopolous
 
 ![](backgrounds/emma-gossett-B645igbiKCw-unsplash.jpg){.image-left}
 
+
+## The basics of reconciliation
+
+::: columns
+::: {.column width="60%"}
+
+::: {.callout-question}
+
+## How many tourists will visit Melbourne?
+
+::: {.fragment .fade-in}
+Forecast $\text{Visitors}_{T+h|T}$ with a suitable model and data.
+:::
+
+:::
+
+::: {.fragment .fade-in}
+::: {.callout-question}
+## How many visitors are from Australia and overseas?
+
+::: {.fragment .fade-in}
+Forecast $\text{Interstate}_{T+h|T}$ and $\text{International}_{T+h|T}$ with
+
+suitable models and data.
+:::
+:::
+:::
+
+::: {.fragment .fade-in}
+::: {.callout-important}
+## Something doesn't add up here...
+
+Independently produced forecasts are [**incoherent**]{.danger},
+
+$\text{Visitors}_{T+h|T} \neq \text{Interstate}_{T+h|T} + \text{International}_{T+h|T}$.
+:::
+:::
+
+:::
+:::
+
+![](backgrounds/linda-xu-K9NhnXS15ZY-unsplash.jpg){.image-right}
+
+## {}
+### Coherency constraints
+
+::: columns
+::: {.column width="60%"}
+
+::: {.callout-tip}
+
+## Impose constraints to ensure coherency
+
+Adjust the forecasts to satisfy the constraint
+
+$\text{Visitors}_{T+h|T} = \text{Interstate}_{T+h|T} + \text{International}_{T+h|T}$.
+
+:::
+
+::: {.fragment .fade-in}
+
+::: {.callout-note}
+## Structural representation
+
+Constraints can be represented using matrices:
+
+$$
+\begin{bmatrix}
+  \text{Visitors}_{t} \\
+  \text{Interstate}_{t} \\
+  \text{International}_{t} \\
+\end{bmatrix}
+=
+\begin{bmatrix}
+  1 & 1 \\
+  1 & 0\\
+  0 & 1 \\
+\end{bmatrix}
+\begin{bmatrix}
+  \text{Interstate}_{t} \\
+  \text{International}_{t} \\
+\end{bmatrix}
+$$
+
+or compactly, $\mathbf{y}_t = \mathbf{S} \mathbf{b}_t$
+
+:::
+:::
+
+::: {.fragment .fade-in}
+::: {.callout-paper}
+More information in @hyndman2011.
+:::
+:::
+
+:::
+:::
+
+![](backgrounds/linda-xu-K9NhnXS15ZY-unsplash.jpg){.image-right}
+
+## {}
+### Coherency constraints
+
+::: columns
+::: {.column width="60%"}
+
+::: {.fragment .fade-in}
+
+::: {.callout-note}
+## Zero-constrained representation
+
+Alternatively, the constraints can also be described with
+
+$$
+\begin{bmatrix}
+  1 & -1 & -1 \\
+\end{bmatrix}
+\begin{bmatrix}
+  \text{Visitors}_{t} \\
+  \text{Interstate}_{t} \\
+  \text{International}_{t} \\
+\end{bmatrix}
+=
+\begin{bmatrix}
+0
+\end{bmatrix}
+$$
+
+or compactly, $\mathbf{C}\mathbf{y}_t = \mathbf{0}$.
+
+:::
+:::
+
+::: {.fragment .fade-in}
+::: {.callout-tip}
+It's usually easy to switch between these representations.
+
+Both $\mathbf{C}$ and $\mathbf{S}$ share a common aggregation matrix $\mathbf{A}$.
+
+$$
+\mathbf{S} = \begin{bmatrix}
+\mathbf{A}\\
+\mathbf{I}_{n_b}
+\end{bmatrix},\hspace{2em}
+\mathbf{C} = \begin{bmatrix}
+\mathbf{I}_{n_a} & -\mathbf{A}
+\end{bmatrix}.
+$$
+
+:::
+:::
+
+:::
+:::
+
+![](backgrounds/linda-xu-K9NhnXS15ZY-unsplash.jpg){.image-right}
+
+
+## {.fragment-remove}
+
+::: columns
+
+::: {.column width="40%"}
+:::
+::: {.column width="60%"}
+### Coherency constraints
+
+::: {.callout-important}
+## These representations can't represent all constraints
+
+Hierarchical and grouped constraints work well, since they have single top series and common bottom series.
+:::
+
+::: {.fragment .fade-in}
+::: {.callout-paper}
+## General linearly constrained time series
+
+@girolimetto2023point generalise the zero-constrained representation to support any constraint.
+:::
+:::
+
+::: {.fragment .fade-in}
+::: {.callout-tip}
+## Graph representation of constraints
+
+I propose representing constraints using **directed acyclical graphs** (DAGs) which achieve the same generality with added benefits.
+:::
+:::
+
+
+:::
+:::
+
+![](backgrounds/eilis-garvey-MskbR8VLNrA-unsplash.jpg){.image-left}
+
+## {.fragment-remove}
+
+::: columns
+
+::: {.column width="40%"}
+:::
+::: {.column width="60%"}
+### General linear constraints
+
+::: {.callout-tip}
+## Generalisation from zero-constrained representation
+
+::: {.fragment .fade-out fragment-index=1}
+Rather than *upper and bottom* series, consider *constrained and unconstrained* series.
+
+![](resources/dani-graph-constraint.png)
+:::
+
+::: {.fragment .fade-up fragment-index=1}
+Similar to $\mathbf{C}$, $\mathbf{\Gamma}$ imposes zero-constraints: $\mathbf{\Gamma}\mathbf{y}_t = \mathbf{0}$.
+
+$$
+\mathbf{\Gamma} = \begin{bmatrix}
+1 & 0 & -1 & -1 & -1 &  0 &  0\\
+1 & 0 &  0 &  0 &  0 & -1 & -1\\
+0 & 1 & -1 & -1 &  0 &  0 &  0\\
+\end{bmatrix}
+$$
+:::
+
+::: {.fragment .fade-up fragment-index=2}
+However the structural representation and aggregation matrix $\mathbf{A}$ is hard to obtain since
+
+$$
+\mathbf{S} = \begin{bmatrix}
+\mathbf{A}\\
+\mathbf{I}_{n_b}
+\end{bmatrix},\hspace{2em}
+\mathbf{\Gamma} \neq \begin{bmatrix}
+\mathbf{I}_{n_a} & -\mathbf{A}
+\end{bmatrix}.
+$$
+:::
+
+::: {.fragment .fade-up fragment-index=3}
+For linear reconciliation, both graph coherence and 'general
+linearly constrained' coherence are equivalent.
+:::
+
+:::
+
+:::
+:::
+
+![](backgrounds/eilis-garvey-MskbR8VLNrA-unsplash.jpg){.image-left}
+
+
+## {.fragment-remove}
+
+::: columns
+
+::: {.column width="40%"}
+:::
+::: {.column width="60%"}
+### General linear constraints
+
+::: {.callout-tip}
+## Generalisation from zero-constrained representation
+
+::: {.fragment .fade-out fragment-index=1}
+Use standard linear algebra techniques to transform $\mathbf{\Gamma}$ into a full rank matrix $\mathbf{\bar{U}}$ of form of $\mathbf{C}$.
+
+$$
+\mathbf{\Gamma} = \begin{bmatrix}
+1 & 0 & -1 & -1 & -1 &  0 &  0\\
+1 & 0 &  0 &  0 &  0 & -1 & -1\\
+0 & 1 & -1 & -1 &  0 &  0 &  0\\
+\end{bmatrix}
+$$
+Two options are proposed:
+
+* Reduced row echelon form [@meyer2023matrix]
+* QR decomposition [@lyche2020numerical]
+
+:::
+
+::: {.fragment .fade-up fragment-index=1}
+::: {.fragment .fade-out fragment-index=2}
+Applying this technique provides an equivalent matrix from which $\mathbf{A}$ is easily obtained.
+```{r}
+#| include: false
+library(FoReco)
+gamma <- matrix(
+  c(
+    1, 0, -1, -1, -1,  0,  0,
+    1, 0,  0,  0,  0, -1, -1,
+    0, 1, -1, -1,  0,  0,  0
+  ),
+  nrow = 3, byrow = TRUE
+)
+lcmat(gamma)
+```
+
+$$
+\mathbf{\bar{U}} = \left[\begin{array}{ccc:cccc}
+1 & 0 & 0 &  0 &  0 & -1 & -1\\
+0 & 1 & 0 &  0 &  1 & -1 & -1\\
+0 & 0 & 1 &  1 &  1 & -1 & -1\\
+\end{array}\right]
+$$
+:::
+:::
+
+::: {.fragment .fade-up fragment-index=2}
+From which a "structural-like" representation, $\mathbf{y}_t = \mathbf{\bar{S}}\mathbf{b}_t$ can be constructed:
+
+$$
+\mathbf{\bar{S}} = \left[\begin{array}{cccc}
+0 &  0 & -1 & -1\\
+0 &  1 & -1 & -1\\
+1 &  1 & -1 & -1\\\hdashline
+1 & 0 & 0 & 0\\
+0 & 1 & 0 & 0\\
+0 & 0 & 1 & 0\\
+0 & 0 & 0 & 1
+\end{array}\right].
+$$
+:::
+:::
+
+:::
+:::
+
+![](backgrounds/eilis-garvey-MskbR8VLNrA-unsplash.jpg){.image-left}
+
+## {.fragment-remove}
+
+::: columns
+
+::: {.column width="40%"}
+:::
+::: {.column width="60%"}
+### Graph constraints
+
+::: {.callout-tip}
+## A novel representation of coherency constraints
+
+Graphs are often used to visualise the constraints...
+
+but can they also be useful in imposing the constraints?
+
+:::
+
+::: {.callout-note}
+## Graphs are used widely in computer science
+
+Representing coherency constraints using graphs would:
+
+* introduce **graph terminology** for navigating structures
+* **simplify** the description of the **coherency constraints**
+* allow representation of **non-linear** relationships
+* **unify tools** for visualisation and reconciliation
+
+:::
+
+:::
+:::
+
+![](backgrounds/eilis-garvey-MskbR8VLNrA-unsplash.jpg){.image-left}
+
+
 ## {}
 
 ::: columns
@@ -885,41 +1251,6 @@ tidygraph::tbl_graph(
 
 ![](backgrounds/PXL_20230908_083157452.jpg){.image-right}
 
-## {.fragment-remove}
-
-::: columns
-
-::: {.column width="40%"}
-:::
-::: {.column width="60%"}
-### Related work
-
-General linearly constrained time series [@girolimetto2023point]
-
-::: {.callout-tip}
-
-## Generalisation from zero-constrained representation
-
-::: {.fragment .fade-out fragment-index=1}
-![](resources/dani-matrix-constraint.png)
-:::
-
-::: {.fragment .fade-up fragment-index=1}
-![](resources/dani-graph-constraint.png)
-:::
-
-::: {.fragment .fade-up fragment-index=2}
-For linear reconciliation, both graph coherence and 'general
-linearly constrained' coherence are equivalent.
-:::
-
-:::
-
-:::
-:::
-
-![](backgrounds/eilis-garvey-MskbR8VLNrA-unsplash.jpg){.image-left}
-
 
 ## {.fragment-remove}
 
@@ -942,15 +1273,24 @@ All currently experimental, but functional. Code on GitHub in various branches.
 * [Add coherency constraints to models/forecasts with `reconcile()` and `min_trace()`]{.fragment fragment-index=2}
 
 :::
+
 :::
 
 ::: {.fragment .fade-up fragment-index=3}
+::: {.callout-paper}
+## Succinctly describe constraints with symbolic language
+
+Similar to modelling interactions in R [@rcore], common aggregation structures are described with symbolic language [@wilkinson1973symbolic].
+:::
+:::
+
+::: {.fragment .fade-up fragment-index=4}
 ::: {.callout-warning}
 ## Planned functionality
 
 * Tools for identifying sub-graphs for exploring series
-* [Tools for changing the graph without removing data]{.fragment fragment-index=4}
-* [Tools for validating operations which change the graph]{.fragment fragment-index=5}
+* [Tools for changing the graph without removing data]{.fragment fragment-index=5}
+* [Tools for validating operations which change the graph]{.fragment fragment-index=6}
 
 :::
 :::

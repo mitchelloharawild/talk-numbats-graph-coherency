@@ -7,7 +7,7 @@
 <link href="index_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="index_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="index_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.2.335">
+  <meta name="generator" content="quarto-1.2.475">
 
   <title>index</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -446,7 +446,406 @@
 </div>
 <p><img data-src="backgrounds/emma-gossett-B645igbiKCw-unsplash.jpg" class="image-left"></p>
 </section>
+<section id="the-basics-of-reconciliation" class="slide level2">
+<h2>The basics of reconciliation</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<div class="callout callout-question callout-captioned callout-style-simple">
+<div class="callout-body">
+<div class="callout-caption">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>How many tourists will visit Melbourne?</strong></p>
+</div>
+<div class="callout-content">
+<div class="fragment fade-in">
+<p>Forecast <span class="math inline">\(\text{Visitors}_{T+h|T}\)</span> with a suitable model and data.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment fade-in">
+<div class="callout callout-question callout-captioned callout-style-simple">
+<div class="callout-body">
+<div class="callout-caption">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>How many visitors are from Australia and overseas?</strong></p>
+</div>
+<div class="callout-content">
+<div class="fragment fade-in">
+<p>Forecast <span class="math inline">\(\text{Interstate}_{T+h|T}\)</span> and <span class="math inline">\(\text{International}_{T+h|T}\)</span> with</p>
+<p>suitable models and data.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment fade-in">
+<div class="callout callout-important callout-captioned callout-style-simple">
+<div class="callout-body">
+<div class="callout-caption">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Something doesn’t add up here…</strong></p>
+</div>
+<div class="callout-content">
+<p>Independently produced forecasts are <span class="danger"><strong>incoherent</strong></span>,</p>
+<p><span class="math inline">\(\text{Visitors}_{T+h|T} \neq \text{Interstate}_{T+h|T} + \text{International}_{T+h|T}\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<img data-src="backgrounds/linda-xu-K9NhnXS15ZY-unsplash.jpg" class="image-right r-stretch"></section>
 <section id="section-1" class="slide level2">
+<h2></h2>
+<h3 id="coherency-constraints">Coherency constraints</h3>
+<div class="columns">
+<div class="column" style="width:60%;">
+<div class="callout callout-tip callout-captioned callout-style-simple">
+<div class="callout-body">
+<div class="callout-caption">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Impose constraints to ensure coherency</strong></p>
+</div>
+<div class="callout-content">
+<p>Adjust the forecasts to satisfy the constraint</p>
+<p><span class="math inline">\(\text{Visitors}_{T+h|T} = \text{Interstate}_{T+h|T} + \text{International}_{T+h|T}\)</span>.</p>
+</div>
+</div>
+</div>
+<div class="fragment fade-in">
+<div class="callout callout-note callout-captioned callout-style-simple">
+<div class="callout-body">
+<div class="callout-caption">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Structural representation</strong></p>
+</div>
+<div class="callout-content">
+<p>Constraints can be represented using matrices:</p>
+<p><span class="math display">\[
+\begin{bmatrix}
+  \text{Visitors}_{t} \\
+  \text{Interstate}_{t} \\
+  \text{International}_{t} \\
+\end{bmatrix}
+=
+\begin{bmatrix}
+  1 &amp; 1 \\
+  1 &amp; 0\\
+  0 &amp; 1 \\
+\end{bmatrix}
+\begin{bmatrix}
+  \text{Interstate}_{t} \\
+  \text{International}_{t} \\
+\end{bmatrix}
+\]</span></p>
+<p>or compactly, <span class="math inline">\(\mathbf{y}_t = \mathbf{S} \mathbf{b}_t\)</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment fade-in">
+<div class="callout callout-paper callout-style-simple">
+<div class="callout-body">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-content">
+<p>More information in <span class="citation" data-cites="hyndman2011">Hyndman et al. (<a href="#/references" role="doc-biblioref" onclick="">2011</a>)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<img data-src="backgrounds/linda-xu-K9NhnXS15ZY-unsplash.jpg" class="image-right r-stretch"></section>
+<section id="section-2" class="slide level2">
+<h2></h2>
+<h3 id="coherency-constraints-1">Coherency constraints</h3>
+<div class="columns">
+<div class="column" style="width:60%;">
+<div class="fragment fade-in">
+<div class="callout callout-note callout-captioned callout-style-simple">
+<div class="callout-body">
+<div class="callout-caption">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Zero-constrained representation</strong></p>
+</div>
+<div class="callout-content">
+<p>Alternatively, the constraints can also be described with</p>
+<p><span class="math display">\[
+\begin{bmatrix}
+  1 &amp; -1 &amp; -1 \\
+\end{bmatrix}
+\begin{bmatrix}
+  \text{Visitors}_{t} \\
+  \text{Interstate}_{t} \\
+  \text{International}_{t} \\
+\end{bmatrix}
+=
+\begin{bmatrix}
+0
+\end{bmatrix}
+\]</span></p>
+<p>or compactly, <span class="math inline">\(\mathbf{C}\mathbf{y}_t = \mathbf{0}\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment fade-in">
+<div class="callout callout-tip callout-style-simple">
+<div class="callout-body">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-content">
+<p>It’s usually easy to switch between these representations.</p>
+<p>Both <span class="math inline">\(\mathbf{C}\)</span> and <span class="math inline">\(\mathbf{S}\)</span> share a common aggregation matrix <span class="math inline">\(\mathbf{A}\)</span>.</p>
+<p><span class="math display">\[
+\mathbf{S} = \begin{bmatrix}
+\mathbf{A}\\
+\mathbf{I}_{n_b}
+\end{bmatrix},\hspace{2em}
+\mathbf{C} = \begin{bmatrix}
+\mathbf{I}_{n_a} &amp; -\mathbf{A}
+\end{bmatrix}.
+\]</span></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<img data-src="backgrounds/linda-xu-K9NhnXS15ZY-unsplash.jpg" class="image-right r-stretch"></section>
+<section id="section-3" class="slide level2 fragment-remove">
+<h2></h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+
+</div><div class="column" style="width:60%;">
+<h3 id="coherency-constraints-2">Coherency constraints</h3>
+<div class="callout callout-important callout-captioned callout-style-simple">
+<div class="callout-body">
+<div class="callout-caption">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>These representations can’t represent all constraints</strong></p>
+</div>
+<div class="callout-content">
+<p>Hierarchical and grouped constraints work well, since they have single top series and common bottom series.</p>
+</div>
+</div>
+</div>
+<div class="fragment fade-in">
+<div class="callout callout-paper callout-captioned callout-style-simple">
+<div class="callout-body">
+<div class="callout-caption">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>General linearly constrained time series</strong></p>
+</div>
+<div class="callout-content">
+<p><span class="citation" data-cites="girolimetto2023point">Girolimetto and Di Fonzo (<a href="#/references" role="doc-biblioref" onclick="">2023</a>)</span> generalise the zero-constrained representation to support any constraint.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment fade-in">
+<div class="callout callout-tip callout-captioned callout-style-simple">
+<div class="callout-body">
+<div class="callout-caption">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Graph representation of constraints</strong></p>
+</div>
+<div class="callout-content">
+<p>I propose representing constraints using <strong>directed acyclical graphs</strong> (DAGs) which achieve the same generality with added benefits.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<img data-src="backgrounds/eilis-garvey-MskbR8VLNrA-unsplash.jpg" class="image-left r-stretch"></section>
+<section id="section-4" class="slide level2 fragment-remove">
+<h2></h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+
+</div><div class="column" style="width:60%;">
+<h3 id="general-linear-constraints">General linear constraints</h3>
+<div class="callout callout-tip callout-captioned callout-style-simple">
+<div class="callout-body">
+<div class="callout-caption">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Generalisation from zero-constrained representation</strong></p>
+</div>
+<div class="callout-content">
+<div class="fragment fade-out" data-fragment-index="1">
+<p>Rather than <em>upper and bottom</em> series, consider <em>constrained and unconstrained</em> series.</p>
+<p><img data-src="resources/dani-graph-constraint.png"></p>
+</div>
+<div class="fragment fade-up" data-fragment-index="1">
+<p>Similar to <span class="math inline">\(\mathbf{C}\)</span>, <span class="math inline">\(\mathbf{\Gamma}\)</span> imposes zero-constraints: <span class="math inline">\(\mathbf{\Gamma}\mathbf{y}_t = \mathbf{0}\)</span>.</p>
+<p><span class="math display">\[
+\mathbf{\Gamma} = \begin{bmatrix}
+1 &amp; 0 &amp; -1 &amp; -1 &amp; -1 &amp;  0 &amp;  0\\
+1 &amp; 0 &amp;  0 &amp;  0 &amp;  0 &amp; -1 &amp; -1\\
+0 &amp; 1 &amp; -1 &amp; -1 &amp;  0 &amp;  0 &amp;  0\\
+\end{bmatrix}
+\]</span></p>
+</div>
+<div class="fragment fade-up" data-fragment-index="2">
+<p>However the structural representation and aggregation matrix <span class="math inline">\(\mathbf{A}\)</span> is hard to obtain since</p>
+<p><span class="math display">\[
+\mathbf{S} = \begin{bmatrix}
+\mathbf{A}\\
+\mathbf{I}_{n_b}
+\end{bmatrix},\hspace{2em}
+\mathbf{\Gamma} \neq \begin{bmatrix}
+\mathbf{I}_{n_a} &amp; -\mathbf{A}
+\end{bmatrix}.
+\]</span></p>
+</div>
+<div class="fragment fade-up" data-fragment-index="3">
+<p>For linear reconciliation, both graph coherence and ‘general linearly constrained’ coherence are equivalent.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p><img data-src="backgrounds/eilis-garvey-MskbR8VLNrA-unsplash.jpg" class="image-left"></p>
+</section>
+<section id="section-5" class="slide level2 fragment-remove">
+<h2></h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+
+</div><div class="column" style="width:60%;">
+<h3 id="general-linear-constraints-1">General linear constraints</h3>
+<div class="callout callout-tip callout-captioned callout-style-simple">
+<div class="callout-body">
+<div class="callout-caption">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Generalisation from zero-constrained representation</strong></p>
+</div>
+<div class="callout-content">
+<div class="fragment fade-out" data-fragment-index="1">
+<p>Use standard linear algebra techniques to transform <span class="math inline">\(\mathbf{\Gamma}\)</span> into a full rank matrix <span class="math inline">\(\mathbf{\bar{U}}\)</span> of form of <span class="math inline">\(\mathbf{C}\)</span>.</p>
+<p><span class="math display">\[
+\mathbf{\Gamma} = \begin{bmatrix}
+1 &amp; 0 &amp; -1 &amp; -1 &amp; -1 &amp;  0 &amp;  0\\
+1 &amp; 0 &amp;  0 &amp;  0 &amp;  0 &amp; -1 &amp; -1\\
+0 &amp; 1 &amp; -1 &amp; -1 &amp;  0 &amp;  0 &amp;  0\\
+\end{bmatrix}
+\]</span> Two options are proposed:</p>
+<ul>
+<li>Reduced row echelon form <span class="citation" data-cites="meyer2023matrix">(<a href="#/references" role="doc-biblioref" onclick="">Meyer and Stewart 2023</a>)</span></li>
+<li>QR decomposition <span class="citation" data-cites="lyche2020numerical">(<a href="#/references" role="doc-biblioref" onclick="">Lyche 2020</a>)</span></li>
+</ul>
+</div>
+<div class="fragment fade-up" data-fragment-index="1">
+<div class="fragment fade-out" data-fragment-index="2">
+<p>Applying this technique provides an equivalent matrix from which <span class="math inline">\(\mathbf{A}\)</span> is easily obtained.</p>
+<p><span class="math display">\[
+\mathbf{\bar{U}} = \left[\begin{array}{ccc:cccc}
+1 &amp; 0 &amp; 0 &amp;  0 &amp;  0 &amp; -1 &amp; -1\\
+0 &amp; 1 &amp; 0 &amp;  0 &amp;  1 &amp; -1 &amp; -1\\
+0 &amp; 0 &amp; 1 &amp;  1 &amp;  1 &amp; -1 &amp; -1\\
+\end{array}\right]
+\]</span></p>
+</div>
+</div>
+<div class="fragment fade-up" data-fragment-index="2">
+<p>From which a “structural-like” representation, <span class="math inline">\(\mathbf{y}_t = \mathbf{\bar{S}}\mathbf{b}_t\)</span> can be constructed:</p>
+<p><span class="math display">\[
+\mathbf{\bar{S}} = \left[\begin{array}{cccc}
+0 &amp;  0 &amp; -1 &amp; -1\\
+0 &amp;  1 &amp; -1 &amp; -1\\
+1 &amp;  1 &amp; -1 &amp; -1\\\hdashline
+1 &amp; 0 &amp; 0 &amp; 0\\
+0 &amp; 1 &amp; 0 &amp; 0\\
+0 &amp; 0 &amp; 1 &amp; 0\\
+0 &amp; 0 &amp; 0 &amp; 1
+\end{array}\right].
+\]</span></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<img data-src="backgrounds/eilis-garvey-MskbR8VLNrA-unsplash.jpg" class="image-left r-stretch"></section>
+<section id="section-6" class="slide level2 fragment-remove">
+<h2></h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+
+</div><div class="column" style="width:60%;">
+<h3 id="graph-constraints">Graph constraints</h3>
+<div class="callout callout-tip callout-captioned callout-style-simple">
+<div class="callout-body">
+<div class="callout-caption">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>A novel representation of coherency constraints</strong></p>
+</div>
+<div class="callout-content">
+<p>Graphs are often used to visualise the constraints…</p>
+<p>but can they also be useful in imposing the constraints?</p>
+</div>
+</div>
+</div>
+<div class="callout callout-note callout-captioned callout-style-simple">
+<div class="callout-body">
+<div class="callout-caption">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Graphs are used widely in computer science</strong></p>
+</div>
+<div class="callout-content">
+<p>Representing coherency constraints using graphs would:</p>
+<ul>
+<li>introduce <strong>graph terminology</strong> for navigating structures</li>
+<li><strong>simplify</strong> the description of the <strong>coherency constraints</strong></li>
+<li>allow representation of <strong>non-linear</strong> relationships</li>
+<li><strong>unify tools</strong> for visualisation and reconciliation</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<img data-src="backgrounds/eilis-garvey-MskbR8VLNrA-unsplash.jpg" class="image-left r-stretch"></section>
+<section id="section-7" class="slide level2">
 <h2></h2>
 <div class="columns">
 <div class="column" style="width:40%;">
@@ -463,10 +862,10 @@
 </div>
 <div class="callout-content">
 <p>The basic constraint shown before is ‘<span class="term"><strong>hierarchical</strong></span>’</p>
-<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-2_e2468f12c1170710157d289d4efa68d5">
+<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-3_6ac12cf2abfe68fed20835249047edc8">
 <div class="cell-output-display">
-<div id="htmlwidget-e39a48f7347f6112396f" style="width:600px;height:300px;" class="visNetwork html-widget "></div>
-<script type="application/json" data-for="htmlwidget-e39a48f7347f6112396f">{"x":{"nodes":{"label":["Attendees","Academic","Industry"],"id":[1,2,3],"level":[0,1,1]},"edges":{"from":[1,1],"to":[2,3]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","font":{"size":16}},"manipulation":{"enabled":false},"layout":{"hierarchical":{"enabled":true,"direction":"UD","shakeTowards":"leaves"}},"edges":{"arrows":"to","scaling":{"label":{"enabled":false}}}},"groups":null,"width":600,"height":300,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":50000,"to":0},"algorithm":"hierarchical","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":true,"fit":false,"resetHighlight":true,"clusterOptions":{"fixed":true,"physics":true},"keepCoord":true,"labelSuffix":"(cluster)"},"tree":{"updateShape":true,"shapeVar":"dot","shapeY":"square"}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-9d3b939b8c5002b2de18" style="width:600px;height:300px;" class="visNetwork html-widget "></div>
+<script type="application/json" data-for="htmlwidget-9d3b939b8c5002b2de18">{"x":{"nodes":{"label":["Attendees","Academic","Industry"],"id":[1,2,3],"level":[0,1,1]},"edges":{"from":[1,1],"to":[2,3]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","font":{"size":16}},"manipulation":{"enabled":false},"layout":{"hierarchical":{"enabled":true,"direction":"UD","shakeTowards":"leaves"}},"edges":{"arrows":"to","scaling":{"label":{"enabled":false}}}},"groups":null,"width":600,"height":300,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":50000,"to":0},"algorithm":"hierarchical","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":true,"fit":false,"resetHighlight":true,"clusterOptions":{"fixed":true,"physics":true},"keepCoord":true,"labelSuffix":"(cluster)"},"tree":{"updateShape":true,"shapeVar":"dot","shapeY":"square"}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </div>
@@ -476,7 +875,7 @@
 </div>
 
 <img data-src="backgrounds/PXL_20230626_200731948.jpg" class="image-left r-stretch"></section>
-<section id="section-2" class="slide level2">
+<section id="section-8" class="slide level2">
 <h2></h2>
 <div class="columns">
 <div class="column" style="width:40%;">
@@ -493,10 +892,10 @@
 </div>
 <div class="callout-content">
 <p><span class="term"><strong>Hierarchical</strong></span> series often have multiple layers</p>
-<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-3_05fcfc17d23f30755869158cca7ddd7f">
+<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-4_f7eea716c444264919cc548fb6da0fb9">
 <div class="cell-output-display">
-<div id="htmlwidget-84daf96b7682d7e516c3" style="width:600px;height:400px;" class="visNetwork html-widget "></div>
-<script type="application/json" data-for="htmlwidget-84daf96b7682d7e516c3">{"x":{"nodes":{"label":["Attendees","Academic","Industry","Students","Staff"],"id":[1,2,3,4,5],"level":[0,1,1,2,2]},"edges":{"from":[1,1,2,2],"to":[2,3,4,5]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","font":{"size":16}},"manipulation":{"enabled":false},"layout":{"hierarchical":{"enabled":true,"direction":"UD","shakeTowards":"leaves"}},"edges":{"arrows":"to","scaling":{"label":{"enabled":false}}}},"groups":null,"width":600,"height":400,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":50000,"to":0},"algorithm":"hierarchical","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":true,"fit":false,"resetHighlight":true,"clusterOptions":{"fixed":true,"physics":true},"keepCoord":true,"labelSuffix":"(cluster)"},"tree":{"updateShape":true,"shapeVar":"dot","shapeY":"square"}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-41ab8cefc05a76d0b864" style="width:600px;height:400px;" class="visNetwork html-widget "></div>
+<script type="application/json" data-for="htmlwidget-41ab8cefc05a76d0b864">{"x":{"nodes":{"label":["Attendees","Academic","Industry","Students","Staff"],"id":[1,2,3,4,5],"level":[0,1,1,2,2]},"edges":{"from":[1,1,2,2],"to":[2,3,4,5]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","font":{"size":16}},"manipulation":{"enabled":false},"layout":{"hierarchical":{"enabled":true,"direction":"UD","shakeTowards":"leaves"}},"edges":{"arrows":"to","scaling":{"label":{"enabled":false}}}},"groups":null,"width":600,"height":400,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":50000,"to":0},"algorithm":"hierarchical","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":true,"fit":false,"resetHighlight":true,"clusterOptions":{"fixed":true,"physics":true},"keepCoord":true,"labelSuffix":"(cluster)"},"tree":{"updateShape":true,"shapeVar":"dot","shapeY":"square"}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <div class="fragment fade-in">
@@ -509,7 +908,7 @@
 </div>
 
 <img data-src="backgrounds/PXL_20230626_200731948.jpg" class="image-left r-stretch"></section>
-<section id="section-3" class="slide level2">
+<section id="section-9" class="slide level2">
 <h2></h2>
 <div class="columns">
 <div class="column" style="width:60%;">
@@ -526,17 +925,17 @@
 <p>Attendance can be disaggregated by both <strong>origin</strong> and <strong>workplace</strong>…</p>
 <div class="columns">
 <div class="column" style="width:50%;">
-<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-4_7cb70f6f9b1a52b82651ef76722e5247">
+<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-5_8effb5d4845483b55f941a6c74cfb151">
 <div class="cell-output-display">
-<div id="htmlwidget-32f9b496a89b99ecfdbb" style="width:300px;height:300px;" class="visNetwork html-widget "></div>
-<script type="application/json" data-for="htmlwidget-32f9b496a89b99ecfdbb">{"x":{"nodes":{"label":["Attendees","Domestic","International"],"id":[1,2,3],"level":[0,1,1]},"edges":{"from":[1,1],"to":[2,3]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","font":{"size":16}},"manipulation":{"enabled":false},"layout":{"hierarchical":{"enabled":true,"direction":"UD","shakeTowards":"leaves"}},"edges":{"arrows":"to","scaling":{"label":{"enabled":false}}}},"groups":null,"width":300,"height":300,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":50000,"to":0},"algorithm":"hierarchical","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":true,"fit":false,"resetHighlight":true,"clusterOptions":{"fixed":true,"physics":true},"keepCoord":true,"labelSuffix":"(cluster)"},"tree":{"updateShape":true,"shapeVar":"dot","shapeY":"square"}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-715fbc70ea420cdfd750" style="width:300px;height:300px;" class="visNetwork html-widget "></div>
+<script type="application/json" data-for="htmlwidget-715fbc70ea420cdfd750">{"x":{"nodes":{"label":["Attendees","Domestic","International"],"id":[1,2,3],"level":[0,1,1]},"edges":{"from":[1,1],"to":[2,3]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","font":{"size":16}},"manipulation":{"enabled":false},"layout":{"hierarchical":{"enabled":true,"direction":"UD","shakeTowards":"leaves"}},"edges":{"arrows":"to","scaling":{"label":{"enabled":false}}}},"groups":null,"width":300,"height":300,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":50000,"to":0},"algorithm":"hierarchical","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":true,"fit":false,"resetHighlight":true,"clusterOptions":{"fixed":true,"physics":true},"keepCoord":true,"labelSuffix":"(cluster)"},"tree":{"updateShape":true,"shapeVar":"dot","shapeY":"square"}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </div><div class="column" style="width:50%;">
-<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-5_35f4ea409325e42e697046347cba0b7e">
+<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-6_525cb9bc9b9d3a87247124a8c4272ba6">
 <div class="cell-output-display">
-<div id="htmlwidget-e9c2355b83cdb2061860" style="width:300px;height:300px;" class="visNetwork html-widget "></div>
-<script type="application/json" data-for="htmlwidget-e9c2355b83cdb2061860">{"x":{"nodes":{"label":["Attendees","Academia","Industry"],"id":[1,2,3],"level":[0,1,1]},"edges":{"from":[1,1],"to":[2,3]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","font":{"size":16}},"manipulation":{"enabled":false},"layout":{"hierarchical":{"enabled":true,"direction":"UD","shakeTowards":"leaves"}},"edges":{"arrows":"to","scaling":{"label":{"enabled":false}}}},"groups":null,"width":300,"height":300,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":50000,"to":0},"algorithm":"hierarchical","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":true,"fit":false,"resetHighlight":true,"clusterOptions":{"fixed":true,"physics":true},"keepCoord":true,"labelSuffix":"(cluster)"},"tree":{"updateShape":true,"shapeVar":"dot","shapeY":"square"}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-f89d415f6f763619d5c2" style="width:300px;height:300px;" class="visNetwork html-widget "></div>
+<script type="application/json" data-for="htmlwidget-f89d415f6f763619d5c2">{"x":{"nodes":{"label":["Attendees","Academia","Industry"],"id":[1,2,3],"level":[0,1,1]},"edges":{"from":[1,1],"to":[2,3]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","font":{"size":16}},"manipulation":{"enabled":false},"layout":{"hierarchical":{"enabled":true,"direction":"UD","shakeTowards":"leaves"}},"edges":{"arrows":"to","scaling":{"label":{"enabled":false}}}},"groups":null,"width":300,"height":300,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":50000,"to":0},"algorithm":"hierarchical","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":true,"fit":false,"resetHighlight":true,"clusterOptions":{"fixed":true,"physics":true},"keepCoord":true,"labelSuffix":"(cluster)"},"tree":{"updateShape":true,"shapeVar":"dot","shapeY":"square"}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </div>
@@ -548,7 +947,7 @@
 </div>
 
 <img data-src="backgrounds/zach-callahan--i51Ke0ROTo-unsplash.jpg" class="image-right r-stretch"></section>
-<section id="section-4" class="slide level2">
+<section id="section-10" class="slide level2">
 <h2></h2>
 <div class="columns">
 <div class="column" style="width:60%;">
@@ -565,17 +964,17 @@
 <p>and then further disaggregated by the other.</p>
 <div class="columns">
 <div class="column" style="width:50%;">
-<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-6_1c05089581a74e5287f5d3182c4aca3d">
+<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-7_8968e740cf9774204b73986c5885c712">
 <div class="cell-output-display">
-<div id="htmlwidget-1b595db8d1929a3d95f0" style="width:300px;height:400px;" class="visNetwork html-widget "></div>
-<script type="application/json" data-for="htmlwidget-1b595db8d1929a3d95f0">{"x":{"nodes":{"label":["Attendees","Domestic","International","Domestic\n& Academia","Domestic\n& Industry","International\n& Academia","International\n& Industry"],"id":[1,2,3,4,5,6,7],"level":[0,1,1,2,2,2,2]},"edges":{"from":[1,1,2,2,3,3],"to":[2,3,4,5,6,7]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","font":{"size":16}},"manipulation":{"enabled":false},"layout":{"hierarchical":{"enabled":true,"direction":"UD","shakeTowards":"leaves"}},"edges":{"arrows":"to","scaling":{"label":{"enabled":false}}}},"groups":null,"width":300,"height":400,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":50000,"to":0},"algorithm":"hierarchical","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":true,"fit":false,"resetHighlight":true,"clusterOptions":{"fixed":true,"physics":true},"keepCoord":true,"labelSuffix":"(cluster)"},"tree":{"updateShape":true,"shapeVar":"dot","shapeY":"square"}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-4972543b3933af4d542a" style="width:300px;height:400px;" class="visNetwork html-widget "></div>
+<script type="application/json" data-for="htmlwidget-4972543b3933af4d542a">{"x":{"nodes":{"label":["Attendees","Domestic","International","Domestic\n& Academia","Domestic\n& Industry","International\n& Academia","International\n& Industry"],"id":[1,2,3,4,5,6,7],"level":[0,1,1,2,2,2,2]},"edges":{"from":[1,1,2,2,3,3],"to":[2,3,4,5,6,7]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","font":{"size":16}},"manipulation":{"enabled":false},"layout":{"hierarchical":{"enabled":true,"direction":"UD","shakeTowards":"leaves"}},"edges":{"arrows":"to","scaling":{"label":{"enabled":false}}}},"groups":null,"width":300,"height":400,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":50000,"to":0},"algorithm":"hierarchical","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":true,"fit":false,"resetHighlight":true,"clusterOptions":{"fixed":true,"physics":true},"keepCoord":true,"labelSuffix":"(cluster)"},"tree":{"updateShape":true,"shapeVar":"dot","shapeY":"square"}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </div><div class="column" style="width:50%;">
-<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-7_7dd80c4cac99f215fc35f19f88fd7b48">
+<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-8_a24582618848f2a87be048e8793cf4e8">
 <div class="cell-output-display">
-<div id="htmlwidget-398b6faf4be7d58e5332" style="width:300px;height:400px;" class="visNetwork html-widget "></div>
-<script type="application/json" data-for="htmlwidget-398b6faf4be7d58e5332">{"x":{"nodes":{"label":["Attendees","Academia","Industry","Academia\n& Domestic","Academia\n& International","Industry\n& Domestic","Industry\n& International"],"id":[1,2,3,4,5,6,7],"level":[0,1,1,2,2,2,2]},"edges":{"from":[1,1,2,2,3,3],"to":[2,3,4,5,6,7]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","font":{"size":16}},"manipulation":{"enabled":false},"layout":{"hierarchical":{"enabled":true,"direction":"UD","shakeTowards":"leaves"}},"edges":{"arrows":"to","scaling":{"label":{"enabled":false}}}},"groups":null,"width":300,"height":400,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":50000,"to":0},"algorithm":"hierarchical","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":true,"fit":false,"resetHighlight":true,"clusterOptions":{"fixed":true,"physics":true},"keepCoord":true,"labelSuffix":"(cluster)"},"tree":{"updateShape":true,"shapeVar":"dot","shapeY":"square"}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-58c5e11e561c970b1316" style="width:300px;height:400px;" class="visNetwork html-widget "></div>
+<script type="application/json" data-for="htmlwidget-58c5e11e561c970b1316">{"x":{"nodes":{"label":["Attendees","Academia","Industry","Academia\n& Domestic","Academia\n& International","Industry\n& Domestic","Industry\n& International"],"id":[1,2,3,4,5,6,7],"level":[0,1,1,2,2,2,2]},"edges":{"from":[1,1,2,2,3,3],"to":[2,3,4,5,6,7]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","font":{"size":16}},"manipulation":{"enabled":false},"layout":{"hierarchical":{"enabled":true,"direction":"UD","shakeTowards":"leaves"}},"edges":{"arrows":"to","scaling":{"label":{"enabled":false}}}},"groups":null,"width":300,"height":400,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":50000,"to":0},"algorithm":"hierarchical","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":true,"fit":false,"resetHighlight":true,"clusterOptions":{"fixed":true,"physics":true},"keepCoord":true,"labelSuffix":"(cluster)"},"tree":{"updateShape":true,"shapeVar":"dot","shapeY":"square"}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </div>
@@ -588,7 +987,7 @@
 </div>
 
 <img data-src="backgrounds/zach-callahan--i51Ke0ROTo-unsplash.jpg" class="image-right r-stretch"></section>
-<section id="section-5" class="slide level2">
+<section id="section-11" class="slide level2">
 <h2></h2>
 <div class="columns">
 <div class="column" style="width:60%;">
@@ -603,10 +1002,10 @@
 </div>
 <div class="callout-content">
 <p>The <span class="term"><strong>grouped</strong></span> structure can be plotted in a single graph.</p>
-<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-8_42e11946f3a90ec20348b710e94e19ef">
+<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-9_bc998628fc93c453d44b4ff4f6dc3c2f">
 <div class="cell-output-display">
-<div id="htmlwidget-1a1db5ba3fe94ad32cfa" style="width:600px;height:400px;" class="visNetwork html-widget "></div>
-<script type="application/json" data-for="htmlwidget-1a1db5ba3fe94ad32cfa">{"x":{"nodes":{"label":["Attendees","Domestic","International","Academia","Industry","Domestic\n& Academia","Domestic\n& Industry","International\n& Academia","International\n& Industry"],"id":[1,2,3,4,5,6,7,8,9],"x":[-0.003371926391818159,-0.8582194521345512,0.86356954610132,0.172705587374925,-0.1708640521216115,-0.6628108638547205,-1,1,0.6736804153398088],"y":[-0.01390576951516009,0.1644008084973776,-0.1675798740901829,0.8533471780243223,-0.8822395672944368,1,-0.6855433690152226,0.6766420294961848,-1]},"edges":{"from":[1,1,1,1,2,4,2,5,3,4,3,5],"to":[2,3,4,5,6,6,7,7,8,8,9,9],"color":["#C87A8A","#C87A8A","#6B9D59","#6B9D59","#C87A8A","#6B9D59","#C87A8A","#6B9D59","#C87A8A","#6B9D59","#C87A8A","#6B9D59"]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","physics":false,"size":20},"manipulation":{"enabled":false},"edges":{"smooth":false,"width":3,"arrows":"to","scaling":{"label":{"enabled":false}}},"physics":{"stabilization":false}},"groups":null,"width":600,"height":400,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","igraphlayout":{"type":"square"},"highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":50000,"to":0},"algorithm":"all","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":false,"fit":false,"resetHighlight":true,"clusterOptions":null,"keepCoord":true,"labelSuffix":"(cluster)"},"tree":{"updateShape":true,"shapeVar":"dot","shapeY":"square"}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-4cdcafa9eab9dc1df73b" style="width:600px;height:400px;" class="visNetwork html-widget "></div>
+<script type="application/json" data-for="htmlwidget-4cdcafa9eab9dc1df73b">{"x":{"nodes":{"label":["Attendees","Domestic","International","Academia","Industry","Domestic\n& Academia","Domestic\n& Industry","International\n& Academia","International\n& Industry"],"id":[1,2,3,4,5,6,7,8,9],"x":[-0.003371926391818159,-0.8582194521345512,0.86356954610132,0.172705587374925,-0.1708640521216115,-0.6628108638547205,-1,1,0.6736804153398088],"y":[-0.01390576951516009,0.1644008084973776,-0.1675798740901829,0.8533471780243223,-0.8822395672944368,1,-0.6855433690152226,0.6766420294961848,-1]},"edges":{"from":[1,1,1,1,2,4,2,5,3,4,3,5],"to":[2,3,4,5,6,6,7,7,8,8,9,9],"color":["#C87A8A","#C87A8A","#6B9D59","#6B9D59","#C87A8A","#6B9D59","#C87A8A","#6B9D59","#C87A8A","#6B9D59","#C87A8A","#6B9D59"]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","physics":false,"size":20},"manipulation":{"enabled":false},"edges":{"smooth":false,"width":3,"arrows":"to","scaling":{"label":{"enabled":false}}},"physics":{"stabilization":false}},"groups":null,"width":600,"height":400,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","igraphlayout":{"type":"square"},"highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":50000,"to":0},"algorithm":"all","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":false,"fit":false,"resetHighlight":true,"clusterOptions":null,"keepCoord":true,"labelSuffix":"(cluster)"},"tree":{"updateShape":true,"shapeVar":"dot","shapeY":"square"}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <div class="fragment fade-in">
@@ -619,7 +1018,7 @@
 </div>
 
 <img data-src="backgrounds/zach-callahan--i51Ke0ROTo-unsplash.jpg" class="image-right r-stretch"></section>
-<section id="section-6" class="slide level2">
+<section id="section-12" class="slide level2">
 <h2></h2>
 <div class="columns">
 <div class="column" style="width:40%;">
@@ -633,10 +1032,10 @@
 </div>
 <div class="callout-content">
 <p>A time series can be disaggregated by temporal granularity</p>
-<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-9_49a33a651060fed51898706c3fabdd22">
+<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-10_fd428ed6c080a0ce22da6a23de7a637f">
 <div class="cell-output-display">
-<div id="htmlwidget-493391e1910b71627bc6" style="width:600px;height:200px;" class="visNetwork html-widget "></div>
-<script type="application/json" data-for="htmlwidget-493391e1910b71627bc6">{"x":{"nodes":{"label":["Year","Q1","Q2","Q3","Q4","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"id":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17],"level":[0,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2]},"edges":{"from":[1,1,1,1,2,2,2,3,3,3,4,4,4,5,5,5],"to":[2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","font":{"size":40}},"manipulation":{"enabled":false},"layout":{"hierarchical":{"enabled":true,"direction":"UD","shakeTowards":"leaves"}},"edges":{"arrows":"to","scaling":{"label":{"enabled":false}}}},"groups":null,"width":600,"height":200,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":50000,"to":0},"algorithm":"hierarchical","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":true,"fit":false,"resetHighlight":true,"clusterOptions":{"fixed":true,"physics":true},"keepCoord":true,"labelSuffix":"(cluster)"},"tree":{"updateShape":true,"shapeVar":"dot","shapeY":"square"}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-d091e39f7ed94177c868" style="width:600px;height:200px;" class="visNetwork html-widget "></div>
+<script type="application/json" data-for="htmlwidget-d091e39f7ed94177c868">{"x":{"nodes":{"label":["Year","Q1","Q2","Q3","Q4","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"id":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17],"level":[0,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2]},"edges":{"from":[1,1,1,1,2,2,2,3,3,3,4,4,4,5,5,5],"to":[2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","font":{"size":40}},"manipulation":{"enabled":false},"layout":{"hierarchical":{"enabled":true,"direction":"UD","shakeTowards":"leaves"}},"edges":{"arrows":"to","scaling":{"label":{"enabled":false}}}},"groups":null,"width":600,"height":200,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":50000,"to":0},"algorithm":"hierarchical","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":true,"fit":false,"resetHighlight":true,"clusterOptions":{"fixed":true,"physics":true},"keepCoord":true,"labelSuffix":"(cluster)"},"tree":{"updateShape":true,"shapeVar":"dot","shapeY":"square"}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </div>
@@ -673,23 +1072,23 @@
 </div>
 
 <img data-src="backgrounds/courtney-smith-pCLKkPHpCz0-unsplash.jpg" class="image-left r-stretch"></section>
-<section id="section-7" class="slide level2">
+<section id="section-13" class="slide level2">
 <h2></h2>
 <div class="columns">
 <div class="column" style="width:40%;">
 
 </div><div class="column" style="width:60%;">
 <h3 id="temporal-coherence-1">Temporal coherence</h3>
-<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-10_9737742f32f86b089902d144c114ca48">
+<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-11_12a33ad4963fcea62bf11eb2d0f22fd4">
 <div class="cell-output-display">
-<div id="htmlwidget-219cb649dd4cd3694509" style="width:700px;height:200px;" class="visNetwork html-widget "></div>
-<script type="application/json" data-for="htmlwidget-219cb649dd4cd3694509">{"x":{"nodes":{"label":["Year","Q1","Q2","Q3","Q4","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"id":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17],"level":[0,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2]},"edges":{"from":[1,1,1,1,2,2,2,3,3,3,4,4,4,5,5,5],"to":[2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","font":{"size":40}},"manipulation":{"enabled":false},"layout":{"hierarchical":{"enabled":true,"direction":"UD","shakeTowards":"leaves"}},"edges":{"arrows":"to","scaling":{"label":{"enabled":false}}}},"groups":null,"width":700,"height":200,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":50000,"to":0},"algorithm":"hierarchical","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":true,"fit":false,"resetHighlight":true,"clusterOptions":{"fixed":true,"physics":true},"keepCoord":true,"labelSuffix":"(cluster)"},"tree":{"updateShape":true,"shapeVar":"dot","shapeY":"square"}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-799e090635104292c1b4" style="width:700px;height:200px;" class="visNetwork html-widget "></div>
+<script type="application/json" data-for="htmlwidget-799e090635104292c1b4">{"x":{"nodes":{"label":["Year","Q1","Q2","Q3","Q4","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"id":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17],"level":[0,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2]},"edges":{"from":[1,1,1,1,2,2,2,3,3,3,4,4,4,5,5,5],"to":[2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","font":{"size":40}},"manipulation":{"enabled":false},"layout":{"hierarchical":{"enabled":true,"direction":"UD","shakeTowards":"leaves"}},"edges":{"arrows":"to","scaling":{"label":{"enabled":false}}}},"groups":null,"width":700,"height":200,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":50000,"to":0},"algorithm":"hierarchical","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":true,"fit":false,"resetHighlight":true,"clusterOptions":{"fixed":true,"physics":true},"keepCoord":true,"labelSuffix":"(cluster)"},"tree":{"updateShape":true,"shapeVar":"dot","shapeY":"square"}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
-<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-11_9d9cf04e7a54275b110d26f132e864b4">
+<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-12_22623e022c68cebc1b18aba2bda711b6">
 <div class="cell-output-display">
-<div id="htmlwidget-434939b614202254e7f9" style="width:700px;height:200px;" class="visNetwork html-widget "></div>
-<script type="application/json" data-for="htmlwidget-434939b614202254e7f9">{"x":{"nodes":{"label":["Year","Jan-Apr","May-Aug","Sep-Dec","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"id":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16],"level":[0,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2]},"edges":{"from":[1,1,1,2,2,2,2,3,3,3,3,4,4,4,4],"to":[2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","font":{"size":40}},"manipulation":{"enabled":false},"layout":{"hierarchical":{"enabled":true,"direction":"UD","shakeTowards":"leaves"}},"edges":{"arrows":"to","scaling":{"label":{"enabled":false}}}},"groups":null,"width":700,"height":200,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":50000,"to":0},"algorithm":"hierarchical","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":true,"fit":false,"resetHighlight":true,"clusterOptions":{"fixed":true,"physics":true},"keepCoord":true,"labelSuffix":"(cluster)"},"tree":{"updateShape":true,"shapeVar":"dot","shapeY":"square"}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-d3ee9bdeec20d6216f19" style="width:700px;height:200px;" class="visNetwork html-widget "></div>
+<script type="application/json" data-for="htmlwidget-d3ee9bdeec20d6216f19">{"x":{"nodes":{"label":["Year","Jan-Apr","May-Aug","Sep-Dec","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"id":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16],"level":[0,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2]},"edges":{"from":[1,1,1,2,2,2,2,3,3,3,3,4,4,4,4],"to":[2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","font":{"size":40}},"manipulation":{"enabled":false},"layout":{"hierarchical":{"enabled":true,"direction":"UD","shakeTowards":"leaves"}},"edges":{"arrows":"to","scaling":{"label":{"enabled":false}}}},"groups":null,"width":700,"height":200,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":50000,"to":0},"algorithm":"hierarchical","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":true,"fit":false,"resetHighlight":true,"clusterOptions":{"fixed":true,"physics":true},"keepCoord":true,"labelSuffix":"(cluster)"},"tree":{"updateShape":true,"shapeVar":"dot","shapeY":"square"}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <div class="fragment fade-in">
@@ -714,7 +1113,7 @@
 </div>
 
 <img data-src="backgrounds/courtney-smith-pCLKkPHpCz0-unsplash.jpg" class="image-left r-stretch"></section>
-<section id="section-8" class="slide level2">
+<section id="section-14" class="slide level2">
 <h2></h2>
 <div class="columns">
 <div class="column" style="width:40%;">
@@ -728,10 +1127,10 @@
 </div>
 <div class="callout-content">
 <p>Temporal coherence constraints are <span class="term"><strong>grouped</strong></span> can also be represented with <span class="term"><strong>directed acyclical graphs</strong></span> (DAGs).</p>
-<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-12_303f110793675bc8b1b71069f2d33f2a">
+<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-13_55b5979e18e792e3860032e324043f65">
 <div class="cell-output-display">
-<div id="htmlwidget-d68594a342391c6620b9" style="width:700px;height:500px;" class="visNetwork html-widget "></div>
-<script type="application/json" data-for="htmlwidget-d68594a342391c6620b9">{"x":{"nodes":{"label":["Year","Q1","Q2","Q3","Q4","Jan-Apr","May-Aug","Sep-Dec","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"id":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20],"x":[-0.05400594153204008,-0.4025836122675311,0.5279899127542234,0.3499252905890411,-0.6550819584534231,-0.1840021427311581,0.6690920750504299,-0.4897559363236491,-0.5080661329043736,-0.2400351501051694,-0.6834033281094694,0.3225316288369899,0.9185469261158925,1,0.7265907610337898,0.8740049766555253,-0.03854619266894377,-1,-0.9357883705518357,-0.7009937986365129],"y":[-0.08026365469781349,0.5549817302860942,0.2565900683007281,-0.602076668830982,-0.5290851774580543,0.6295752330530142,-0.2153387036532498,-0.6767056635977524,0.9669927230446371,1,0.7563276781751973,0.6913868441606599,0.2322349843697402,0.03229075048331187,-0.7226803954898391,-0.5592963964373876,-0.9135472332778896,-0.5978961503510797,-0.8600785125976133,-1]},"edges":{"from":[1,1,1,1,1,1,1,2,2,2,3,3,3,4,4,4,5,5,5,6,6,6,6,7,7,7,7,8,8,8,8],"to":[2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,9,10,11,12,13,14,15,16,17,18,19,20],"grp":[1,1,1,1,2,2,2,1,1,1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2],"color":["#C87A8A","#C87A8A","#C87A8A","#C87A8A","#6B9D59","#6B9D59","#6B9D59","#C87A8A","#C87A8A","#C87A8A","#C87A8A","#C87A8A","#C87A8A","#C87A8A","#C87A8A","#C87A8A","#C87A8A","#C87A8A","#C87A8A","#6B9D59","#6B9D59","#6B9D59","#6B9D59","#6B9D59","#6B9D59","#6B9D59","#6B9D59","#6B9D59","#6B9D59","#6B9D59","#6B9D59"]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","physics":false,"size":20,"font":{"size":30}},"manipulation":{"enabled":false},"edges":{"smooth":false,"width":3,"arrows":"to","scaling":{"label":{"enabled":false}}},"physics":{"stabilization":false}},"groups":null,"width":700,"height":500,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","igraphlayout":{"type":"square"},"highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":50000,"to":0},"algorithm":"all","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":false,"fit":false,"resetHighlight":true,"clusterOptions":null,"keepCoord":true,"labelSuffix":"(cluster)"},"tree":{"updateShape":true,"shapeVar":"dot","shapeY":"square"}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-f3b0f88c61b53123b372" style="width:700px;height:500px;" class="visNetwork html-widget "></div>
+<script type="application/json" data-for="htmlwidget-f3b0f88c61b53123b372">{"x":{"nodes":{"label":["Year","Q1","Q2","Q3","Q4","Jan-Apr","May-Aug","Sep-Dec","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"id":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20],"x":[-0.05400594153204008,-0.4025836122675311,0.5279899127542234,0.3499252905890411,-0.6550819584534231,-0.1840021427311581,0.6690920750504299,-0.4897559363236491,-0.5080661329043736,-0.2400351501051694,-0.6834033281094694,0.3225316288369899,0.9185469261158925,1,0.7265907610337898,0.8740049766555253,-0.03854619266894377,-1,-0.9357883705518357,-0.7009937986365129],"y":[-0.08026365469781349,0.5549817302860942,0.2565900683007281,-0.602076668830982,-0.5290851774580543,0.6295752330530142,-0.2153387036532498,-0.6767056635977524,0.9669927230446371,1,0.7563276781751973,0.6913868441606599,0.2322349843697402,0.03229075048331187,-0.7226803954898391,-0.5592963964373876,-0.9135472332778896,-0.5978961503510797,-0.8600785125976133,-1]},"edges":{"from":[1,1,1,1,1,1,1,2,2,2,3,3,3,4,4,4,5,5,5,6,6,6,6,7,7,7,7,8,8,8,8],"to":[2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,9,10,11,12,13,14,15,16,17,18,19,20],"grp":[1,1,1,1,2,2,2,1,1,1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2],"color":["#C87A8A","#C87A8A","#C87A8A","#C87A8A","#6B9D59","#6B9D59","#6B9D59","#C87A8A","#C87A8A","#C87A8A","#C87A8A","#C87A8A","#C87A8A","#C87A8A","#C87A8A","#C87A8A","#C87A8A","#C87A8A","#C87A8A","#6B9D59","#6B9D59","#6B9D59","#6B9D59","#6B9D59","#6B9D59","#6B9D59","#6B9D59","#6B9D59","#6B9D59","#6B9D59","#6B9D59"]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","physics":false,"size":20,"font":{"size":30}},"manipulation":{"enabled":false},"edges":{"smooth":false,"width":3,"arrows":"to","scaling":{"label":{"enabled":false}}},"physics":{"stabilization":false}},"groups":null,"width":700,"height":500,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","igraphlayout":{"type":"square"},"highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":50000,"to":0},"algorithm":"all","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":false,"fit":false,"resetHighlight":true,"clusterOptions":null,"keepCoord":true,"labelSuffix":"(cluster)"},"tree":{"updateShape":true,"shapeVar":"dot","shapeY":"square"}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </div>
@@ -741,7 +1140,7 @@
 </div>
 
 <img data-src="backgrounds/courtney-smith-pCLKkPHpCz0-unsplash.jpg" class="image-left r-stretch"></section>
-<section id="section-9" class="slide level2 fragment-remove">
+<section id="section-15" class="slide level2 fragment-remove">
 <h2></h2>
 <div class="columns">
 <div class="column" style="width:40%;">
@@ -758,27 +1157,27 @@
 <div class="fragment fade-out" data-fragment-index="1">
 <div class="columns">
 <div class="column" style="width:50%;">
-<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-13_f20b2a6fd431c8c94f0f8628229c9360">
+<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-14_de37a88a096f7395db65b39ff384758c">
 <div class="cell-output-display">
-<div id="htmlwidget-71d07833fb5431a25e64" style="width:300px;height:300px;" class="visNetwork html-widget "></div>
-<script type="application/json" data-for="htmlwidget-71d07833fb5431a25e64">{"x":{"nodes":{"label":["Year","Q1","Q2","Q3","Q4","Jan-Apr","May-Aug","Sep-Dec","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"id":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20],"x":[-0.05400594153204008,-0.4025836122675311,0.5279899127542234,0.3499252905890411,-0.6550819584534231,-0.1840021427311581,0.6690920750504299,-0.4897559363236491,-0.5080661329043736,-0.2400351501051694,-0.6834033281094694,0.3225316288369899,0.9185469261158925,1,0.7265907610337898,0.8740049766555253,-0.03854619266894377,-1,-0.9357883705518357,-0.7009937986365129],"y":[-0.08026365469781349,0.5549817302860942,0.2565900683007281,-0.602076668830982,-0.5290851774580543,0.6295752330530142,-0.2153387036532498,-0.6767056635977524,0.9669927230446371,1,0.7563276781751973,0.6913868441606599,0.2322349843697402,0.03229075048331187,-0.7226803954898391,-0.5592963964373876,-0.9135472332778896,-0.5978961503510797,-0.8600785125976133,-1]},"edges":{"from":[1,1,1,1,1,1,1,2,2,2,3,3,3,4,4,4,5,5,5,6,6,6,6,7,7,7,7,8,8,8,8],"to":[2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,9,10,11,12,13,14,15,16,17,18,19,20],"grp":[1,1,1,1,2,2,2,1,1,1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2],"color":["#C87A8A","#C87A8A","#C87A8A","#C87A8A","#6B9D59","#6B9D59","#6B9D59","#C87A8A","#C87A8A","#C87A8A","#C87A8A","#C87A8A","#C87A8A","#C87A8A","#C87A8A","#C87A8A","#C87A8A","#C87A8A","#C87A8A","#6B9D59","#6B9D59","#6B9D59","#6B9D59","#6B9D59","#6B9D59","#6B9D59","#6B9D59","#6B9D59","#6B9D59","#6B9D59","#6B9D59"]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","physics":false,"size":20,"font":{"size":30}},"manipulation":{"enabled":false},"edges":{"smooth":false,"width":3,"arrows":"to","scaling":{"label":{"enabled":false}}},"physics":{"stabilization":false}},"groups":null,"width":300,"height":300,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","igraphlayout":{"type":"square"},"highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":50000,"to":0},"algorithm":"all","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":false,"fit":false,"resetHighlight":true,"clusterOptions":null,"keepCoord":true,"labelSuffix":"(cluster)"},"tree":{"updateShape":true,"shapeVar":"dot","shapeY":"square"}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-736bd213d090c9a095dc" style="width:300px;height:300px;" class="visNetwork html-widget "></div>
+<script type="application/json" data-for="htmlwidget-736bd213d090c9a095dc">{"x":{"nodes":{"label":["Year","Q1","Q2","Q3","Q4","Jan-Apr","May-Aug","Sep-Dec","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"id":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20],"x":[-0.05400594153204008,-0.4025836122675311,0.5279899127542234,0.3499252905890411,-0.6550819584534231,-0.1840021427311581,0.6690920750504299,-0.4897559363236491,-0.5080661329043736,-0.2400351501051694,-0.6834033281094694,0.3225316288369899,0.9185469261158925,1,0.7265907610337898,0.8740049766555253,-0.03854619266894377,-1,-0.9357883705518357,-0.7009937986365129],"y":[-0.08026365469781349,0.5549817302860942,0.2565900683007281,-0.602076668830982,-0.5290851774580543,0.6295752330530142,-0.2153387036532498,-0.6767056635977524,0.9669927230446371,1,0.7563276781751973,0.6913868441606599,0.2322349843697402,0.03229075048331187,-0.7226803954898391,-0.5592963964373876,-0.9135472332778896,-0.5978961503510797,-0.8600785125976133,-1]},"edges":{"from":[1,1,1,1,1,1,1,2,2,2,3,3,3,4,4,4,5,5,5,6,6,6,6,7,7,7,7,8,8,8,8],"to":[2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,9,10,11,12,13,14,15,16,17,18,19,20],"grp":[1,1,1,1,2,2,2,1,1,1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2],"color":["#C87A8A","#C87A8A","#C87A8A","#C87A8A","#6B9D59","#6B9D59","#6B9D59","#C87A8A","#C87A8A","#C87A8A","#C87A8A","#C87A8A","#C87A8A","#C87A8A","#C87A8A","#C87A8A","#C87A8A","#C87A8A","#C87A8A","#6B9D59","#6B9D59","#6B9D59","#6B9D59","#6B9D59","#6B9D59","#6B9D59","#6B9D59","#6B9D59","#6B9D59","#6B9D59","#6B9D59"]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","physics":false,"size":20,"font":{"size":30}},"manipulation":{"enabled":false},"edges":{"smooth":false,"width":3,"arrows":"to","scaling":{"label":{"enabled":false}}},"physics":{"stabilization":false}},"groups":null,"width":300,"height":300,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","igraphlayout":{"type":"square"},"highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":50000,"to":0},"algorithm":"all","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":false,"fit":false,"resetHighlight":true,"clusterOptions":null,"keepCoord":true,"labelSuffix":"(cluster)"},"tree":{"updateShape":true,"shapeVar":"dot","shapeY":"square"}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </div><div class="column" style="width:50%;">
-<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-14_d7a0008b798733cedf12f11887acba0c">
+<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-15_4cbf4cf1023713fb896be0a0a75fe270">
 <div class="cell-output-display">
-<div id="htmlwidget-96fdf3e249a70abd9dc7" style="width:300px;height:300px;" class="visNetwork html-widget "></div>
-<script type="application/json" data-for="htmlwidget-96fdf3e249a70abd9dc7">{"x":{"nodes":{"label":["Attendees","Domestic","International","Academia","Industry","Domestic\n& Academia","Domestic\n& Industry","International\n& Academia","International\n& Industry"],"id":[1,2,3,4,5,6,7,8,9],"x":[-0.003371926391818159,-0.8582194521345512,0.86356954610132,0.172705587374925,-0.1708640521216115,-0.6628108638547205,-1,1,0.6736804153398088],"y":[-0.01390576951516009,0.1644008084973776,-0.1675798740901829,0.8533471780243223,-0.8822395672944368,1,-0.6855433690152226,0.6766420294961848,-1]},"edges":{"from":[1,1,1,1,2,4,2,5,3,4,3,5],"to":[2,3,4,5,6,6,7,7,8,8,9,9],"color":["#00A396","#00A396","#9189C7","#9189C7","#00A396","#9189C7","#00A396","#9189C7","#00A396","#9189C7","#00A396","#9189C7"]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","physics":false,"size":20},"manipulation":{"enabled":false},"edges":{"smooth":false,"width":3,"arrows":"to","scaling":{"label":{"enabled":false}}},"physics":{"stabilization":false}},"groups":null,"width":300,"height":300,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","igraphlayout":{"type":"square"},"highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":50000,"to":0},"algorithm":"all","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":false,"fit":false,"resetHighlight":true,"clusterOptions":null,"keepCoord":true,"labelSuffix":"(cluster)"},"tree":{"updateShape":true,"shapeVar":"dot","shapeY":"square"}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-9e113c0e7a26e3b10905" style="width:300px;height:300px;" class="visNetwork html-widget "></div>
+<script type="application/json" data-for="htmlwidget-9e113c0e7a26e3b10905">{"x":{"nodes":{"label":["Attendees","Domestic","International","Academia","Industry","Domestic\n& Academia","Domestic\n& Industry","International\n& Academia","International\n& Industry"],"id":[1,2,3,4,5,6,7,8,9],"x":[-0.003371926391818159,-0.8582194521345512,0.86356954610132,0.172705587374925,-0.1708640521216115,-0.6628108638547205,-1,1,0.6736804153398088],"y":[-0.01390576951516009,0.1644008084973776,-0.1675798740901829,0.8533471780243223,-0.8822395672944368,1,-0.6855433690152226,0.6766420294961848,-1]},"edges":{"from":[1,1,1,1,2,4,2,5,3,4,3,5],"to":[2,3,4,5,6,6,7,7,8,8,9,9],"color":["#00A396","#00A396","#9189C7","#9189C7","#00A396","#9189C7","#00A396","#9189C7","#00A396","#9189C7","#00A396","#9189C7"]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","physics":false,"size":20},"manipulation":{"enabled":false},"edges":{"smooth":false,"width":3,"arrows":"to","scaling":{"label":{"enabled":false}}},"physics":{"stabilization":false}},"groups":null,"width":300,"height":300,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","igraphlayout":{"type":"square"},"highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":50000,"to":0},"algorithm":"all","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":false,"fit":false,"resetHighlight":true,"clusterOptions":null,"keepCoord":true,"labelSuffix":"(cluster)"},"tree":{"updateShape":true,"shapeVar":"dot","shapeY":"square"}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </div>
 </div>
 </div>
 <div class="fragment fade-up" data-fragment-index="1">
-<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-15_8b1f6fb7a6a348e6e3b0f4e8b3dc057c">
+<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-16_96968b6794c9e3f4cb3d2c373f05a9cb">
 <div class="cell-output-display">
-<div id="htmlwidget-f98415c6504ec21f2593" style="width:600px;height:400px;" class="visNetwork html-widget "></div>
-<script type="application/json" data-for="htmlwidget-f98415c6504ec21f2593">{"x":{"nodes":{"label":["Attendees","Domestic","International","Academia","Industry","Domestic\n& Academia","Domestic\n& Industry","International\n& Academia","International\n& Industry"],"image":["resources/temporal-graph-node.png","resources/temporal-graph-node.png","resources/temporal-graph-node.png","resources/temporal-graph-node.png","resources/temporal-graph-node.png","resources/temporal-graph-node.png","resources/temporal-graph-node.png","resources/temporal-graph-node.png","resources/temporal-graph-node.png"],"shape":["image","image","image","image","image","image","image","image","image"],"id":[1,2,3,4,5,6,7,8,9],"x":[-0.003371926391818159,-0.8582194521345512,0.86356954610132,0.172705587374925,-0.1708640521216115,-0.6628108638547205,-1,1,0.6736804153398088],"y":[-0.01390576951516009,0.1644008084973776,-0.1675798740901829,0.8533471780243223,-0.8822395672944368,1,-0.6855433690152226,0.6766420294961848,-1]},"edges":{"from":[1,1,1,1,2,4,2,5,3,4,3,5],"to":[2,3,4,5,6,6,7,7,8,8,9,9],"color":["#00A396","#00A396","#9189C7","#9189C7","#00A396","#9189C7","#00A396","#9189C7","#00A396","#9189C7","#00A396","#9189C7"]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","physics":false,"size":20},"manipulation":{"enabled":false},"edges":{"smooth":false,"width":3,"arrows":"to","scaling":{"label":{"enabled":false}}},"physics":{"stabilization":false}},"groups":null,"width":600,"height":400,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","igraphlayout":{"type":"square"},"highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":50000,"to":0},"algorithm":"all","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":false,"fit":false,"resetHighlight":true,"clusterOptions":null,"keepCoord":true,"labelSuffix":"(cluster)"},"tree":{"updateShape":true,"shapeVar":"dot","shapeY":"square"}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-07ff46277a639a9c16ed" style="width:600px;height:400px;" class="visNetwork html-widget "></div>
+<script type="application/json" data-for="htmlwidget-07ff46277a639a9c16ed">{"x":{"nodes":{"label":["Attendees","Domestic","International","Academia","Industry","Domestic\n& Academia","Domestic\n& Industry","International\n& Academia","International\n& Industry"],"image":["resources/temporal-graph-node.png","resources/temporal-graph-node.png","resources/temporal-graph-node.png","resources/temporal-graph-node.png","resources/temporal-graph-node.png","resources/temporal-graph-node.png","resources/temporal-graph-node.png","resources/temporal-graph-node.png","resources/temporal-graph-node.png"],"shape":["image","image","image","image","image","image","image","image","image"],"id":[1,2,3,4,5,6,7,8,9],"x":[-0.003371926391818159,-0.8582194521345512,0.86356954610132,0.172705587374925,-0.1708640521216115,-0.6628108638547205,-1,1,0.6736804153398088],"y":[-0.01390576951516009,0.1644008084973776,-0.1675798740901829,0.8533471780243223,-0.8822395672944368,1,-0.6855433690152226,0.6766420294961848,-1]},"edges":{"from":[1,1,1,1,2,4,2,5,3,4,3,5],"to":[2,3,4,5,6,6,7,7,8,8,9,9],"color":["#00A396","#00A396","#9189C7","#9189C7","#00A396","#9189C7","#00A396","#9189C7","#00A396","#9189C7","#00A396","#9189C7"]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","physics":false,"size":20},"manipulation":{"enabled":false},"edges":{"smooth":false,"width":3,"arrows":"to","scaling":{"label":{"enabled":false}}},"physics":{"stabilization":false}},"groups":null,"width":600,"height":400,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","igraphlayout":{"type":"square"},"highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":50000,"to":0},"algorithm":"all","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":false,"fit":false,"resetHighlight":true,"clusterOptions":null,"keepCoord":true,"labelSuffix":"(cluster)"},"tree":{"updateShape":true,"shapeVar":"dot","shapeY":"square"}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </div>
@@ -789,7 +1188,7 @@
 </div>
 
 <img data-src="backgrounds/aleksandar-radovanovic-mXKXJI98aTE-unsplash.jpg" class="image-left r-stretch"></section>
-<section id="section-10" class="slide level2">
+<section id="section-16" class="slide level2">
 <h2></h2>
 <div class="columns">
 <div class="column" style="width:60%;">
@@ -818,7 +1217,7 @@
 </div>
 
 <img data-src="backgrounds/eilis-garvey-MskbR8VLNrA-unsplash.jpg" class="image-right r-stretch"></section>
-<section id="section-11" class="slide level2" data-auto-animate="true">
+<section id="section-17" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <div class="columns">
 <div class="column" style="width:40%;">
@@ -837,7 +1236,7 @@
 </div>
 
 <img data-src="backgrounds/oriento--OBffuUekfQ-unsplash.jpg" class="image-left r-stretch"></section>
-<section id="section-12" class="slide level2" data-auto-animate="true">
+<section id="section-18" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <div class="columns">
 <div class="column" style="width:40%;">
@@ -858,10 +1257,10 @@
 <div class="callout-content">
 <p>Suppose <code>Sales</code> is reported quarterly, but <code>Profit</code> and <code>Costs</code> twice yearly.</p>
 <div data-id="graphtemp">
-<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-16_42f3d35d5360d11dfe5ebdf564b746ff">
+<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-17_32eff466982ee4d797c8adb68f878021">
 <div class="cell-output-display">
-<div id="htmlwidget-6f3da810bd06c24738a1" style="width:600px;height:400px;" class="visNetwork html-widget "></div>
-<script type="application/json" data-for="htmlwidget-6f3da810bd06c24738a1">{"x":{"nodes":{"label":["Profit (Y)","Sales (Y)","-Costs (Y)","Profit (S1)","Sales (S1)","-Costs (S1)","Profit (S2)","Sales (S2)","-Costs (S2)","Sales (Q1)","Sales (Q2)","Sales (Q3)","Sales (Q4)"],"id":[1,2,3,4,5,6,7,8,9,10,11,12,13],"x":[-0.3582040390209666,-0.01049498420926265,-0.700218109949812,0.01263882916904779,0.4996034937053015,-0.3669663160980248,-0.6891066332450266,-0.420604205726013,-1,1,0.9110964283020246,-0.2857898768441832,-0.7420082841920523],"y":[0.3522192958286621,-0.007039236584347019,0.6987669242810171,0.6859429479520101,0.4041352682392674,1,-0.02160509927886167,-0.513009636272736,0.361759628924097,0.2780657174748593,0.7191427299340987,-1,-0.9216143712625707]},"edges":{"from":[1,1,4,4,7,7,1,1,2,2,3,3,5,5,8,8],"to":[2,3,5,6,8,9,4,7,5,8,6,9,10,11,12,13],"grp":[1,1,1,1,1,1,2,2,2,2,2,2,3,3,3,3],"color":["#C87A8A","#C87A8A","#C87A8A","#C87A8A","#C87A8A","#C87A8A","#6B9D59","#6B9D59","#6B9D59","#6B9D59","#6B9D59","#6B9D59","#5F96C2","#5F96C2","#5F96C2","#5F96C2"]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","physics":false,"size":20,"font":{"size":25}},"manipulation":{"enabled":false},"edges":{"smooth":false,"width":3,"arrows":"to","scaling":{"label":{"enabled":false}}},"physics":{"stabilization":false}},"groups":null,"width":600,"height":400,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","igraphlayout":{"type":"square"},"highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":50000,"to":0},"algorithm":"all","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":false,"fit":false,"resetHighlight":true,"clusterOptions":null,"keepCoord":true,"labelSuffix":"(cluster)"},"tree":{"updateShape":true,"shapeVar":"dot","shapeY":"square"}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-f90e71e225062c5f5728" style="width:600px;height:400px;" class="visNetwork html-widget "></div>
+<script type="application/json" data-for="htmlwidget-f90e71e225062c5f5728">{"x":{"nodes":{"label":["Profit (Y)","Sales (Y)","-Costs (Y)","Profit (S1)","Sales (S1)","-Costs (S1)","Profit (S2)","Sales (S2)","-Costs (S2)","Sales (Q1)","Sales (Q2)","Sales (Q3)","Sales (Q4)"],"id":[1,2,3,4,5,6,7,8,9,10,11,12,13],"x":[-0.3582040390209666,-0.01049498420926265,-0.700218109949812,0.01263882916904779,0.4996034937053015,-0.3669663160980248,-0.6891066332450266,-0.420604205726013,-1,1,0.9110964283020246,-0.2857898768441832,-0.7420082841920523],"y":[0.3522192958286621,-0.007039236584347019,0.6987669242810171,0.6859429479520101,0.4041352682392674,1,-0.02160509927886167,-0.513009636272736,0.361759628924097,0.2780657174748593,0.7191427299340987,-1,-0.9216143712625707]},"edges":{"from":[1,1,4,4,7,7,1,1,2,2,3,3,5,5,8,8],"to":[2,3,5,6,8,9,4,7,5,8,6,9,10,11,12,13],"grp":[1,1,1,1,1,1,2,2,2,2,2,2,3,3,3,3],"color":["#C87A8A","#C87A8A","#C87A8A","#C87A8A","#C87A8A","#C87A8A","#6B9D59","#6B9D59","#6B9D59","#6B9D59","#6B9D59","#6B9D59","#5F96C2","#5F96C2","#5F96C2","#5F96C2"]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","physics":false,"size":20,"font":{"size":25}},"manipulation":{"enabled":false},"edges":{"smooth":false,"width":3,"arrows":"to","scaling":{"label":{"enabled":false}}},"physics":{"stabilization":false}},"groups":null,"width":600,"height":400,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","igraphlayout":{"type":"square"},"highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":50000,"to":0},"algorithm":"all","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":false,"fit":false,"resetHighlight":true,"clusterOptions":null,"keepCoord":true,"labelSuffix":"(cluster)"},"tree":{"updateShape":true,"shapeVar":"dot","shapeY":"square"}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </div>
@@ -873,7 +1272,7 @@
 </div>
 
 <img data-src="backgrounds/oriento--OBffuUekfQ-unsplash.jpg" class="image-left r-stretch"></section>
-<section id="section-13" class="slide level2" data-auto-animate="true">
+<section id="section-19" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <div class="columns">
 <div class="column" style="width:40%;">
@@ -892,10 +1291,10 @@
 </div>
 <div class="callout-content">
 <div data-id="graphtemp">
-<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-17_32eff466982ee4d797c8adb68f878021">
+<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-18_1e440f300d634d6b61146dd32e1302a1">
 <div class="cell-output-display">
-<div id="htmlwidget-f90e71e225062c5f5728" style="width:600px;height:400px;" class="visNetwork html-widget "></div>
-<script type="application/json" data-for="htmlwidget-f90e71e225062c5f5728">{"x":{"nodes":{"label":["Profit (Y)","Sales (Y)","-Costs (Y)","Profit (S1)","Sales (S1)","-Costs (S1)","Profit (S2)","Sales (S2)","-Costs (S2)","Sales (Q1)","Sales (Q2)","Sales (Q3)","Sales (Q4)"],"id":[1,2,3,4,5,6,7,8,9,10,11,12,13],"x":[-0.3582040390209666,-0.01049498420926265,-0.700218109949812,0.01263882916904779,0.4996034937053015,-0.3669663160980248,-0.6891066332450266,-0.420604205726013,-1,1,0.9110964283020246,-0.2857898768441832,-0.7420082841920523],"y":[0.3522192958286621,-0.007039236584347019,0.6987669242810171,0.6859429479520101,0.4041352682392674,1,-0.02160509927886167,-0.513009636272736,0.361759628924097,0.2780657174748593,0.7191427299340987,-1,-0.9216143712625707]},"edges":{"from":[1,1,4,4,7,7,1,1,2,2,3,3,5,5,8,8],"to":[2,3,5,6,8,9,4,7,5,8,6,9,10,11,12,13],"grp":[1,1,1,1,1,1,2,2,2,2,2,2,3,3,3,3],"color":["#C87A8A","#C87A8A","#C87A8A","#C87A8A","#C87A8A","#C87A8A","#6B9D59","#6B9D59","#6B9D59","#6B9D59","#6B9D59","#6B9D59","#5F96C2","#5F96C2","#5F96C2","#5F96C2"]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","physics":false,"size":20,"font":{"size":25}},"manipulation":{"enabled":false},"edges":{"smooth":false,"width":3,"arrows":"to","scaling":{"label":{"enabled":false}}},"physics":{"stabilization":false}},"groups":null,"width":600,"height":400,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","igraphlayout":{"type":"square"},"highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":50000,"to":0},"algorithm":"all","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":false,"fit":false,"resetHighlight":true,"clusterOptions":null,"keepCoord":true,"labelSuffix":"(cluster)"},"tree":{"updateShape":true,"shapeVar":"dot","shapeY":"square"}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-2516e405aafa92a4c172" style="width:600px;height:400px;" class="visNetwork html-widget "></div>
+<script type="application/json" data-for="htmlwidget-2516e405aafa92a4c172">{"x":{"nodes":{"label":["Profit (Y)","Sales (Y)","-Costs (Y)","Profit (S1)","Sales (S1)","-Costs (S1)","Profit (S2)","Sales (S2)","-Costs (S2)","Sales (Q1)","Sales (Q2)","Sales (Q3)","Sales (Q4)"],"id":[1,2,3,4,5,6,7,8,9,10,11,12,13],"x":[-0.3582040390209666,-0.01049498420926265,-0.700218109949812,0.01263882916904779,0.4996034937053015,-0.3669663160980248,-0.6891066332450266,-0.420604205726013,-1,1,0.9110964283020246,-0.2857898768441832,-0.7420082841920523],"y":[0.3522192958286621,-0.007039236584347019,0.6987669242810171,0.6859429479520101,0.4041352682392674,1,-0.02160509927886167,-0.513009636272736,0.361759628924097,0.2780657174748593,0.7191427299340987,-1,-0.9216143712625707]},"edges":{"from":[1,1,4,4,7,7,1,1,2,2,3,3,5,5,8,8],"to":[2,3,5,6,8,9,4,7,5,8,6,9,10,11,12,13],"grp":[1,1,1,1,1,1,2,2,2,2,2,2,3,3,3,3],"color":["#C87A8A","#C87A8A","#C87A8A","#C87A8A","#C87A8A","#C87A8A","#6B9D59","#6B9D59","#6B9D59","#6B9D59","#6B9D59","#6B9D59","#5F96C2","#5F96C2","#5F96C2","#5F96C2"]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","physics":false,"size":20,"font":{"size":25}},"manipulation":{"enabled":false},"edges":{"smooth":false,"width":3,"arrows":"to","scaling":{"label":{"enabled":false}}},"physics":{"stabilization":false}},"groups":null,"width":600,"height":400,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","igraphlayout":{"type":"square"},"highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":50000,"to":0},"algorithm":"all","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":false,"fit":false,"resetHighlight":true,"clusterOptions":null,"keepCoord":true,"labelSuffix":"(cluster)"},"tree":{"updateShape":true,"shapeVar":"dot","shapeY":"square"}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </div>
@@ -907,7 +1306,7 @@
 </div>
 
 <img data-src="backgrounds/oriento--OBffuUekfQ-unsplash.jpg" class="image-left r-stretch"></section>
-<section id="section-14" class="slide level2" data-auto-animate="true">
+<section id="section-20" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <div class="columns">
 <div class="column" style="width:40%;">
@@ -951,7 +1350,7 @@
 </div>
 
 <img data-src="backgrounds/oriento--OBffuUekfQ-unsplash.jpg" class="image-left r-stretch"></section>
-<section id="section-15" class="slide level2" data-auto-animate="true">
+<section id="section-21" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <div class="columns">
 <div class="column" style="width:40%;">
@@ -969,19 +1368,19 @@
 <ul>
 <li>Income approach (I)</li>
 </ul>
-<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-18_ad6f7cd6a7967166d82caa111ae09b7b">
+<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-19_3a3e890023776b9a00b54f061c9224bf">
 <div class="cell-output-display">
-<div id="htmlwidget-922ddc175d4a54c8aac1" style="width:600px;height:200px;" class="visNetwork html-widget "></div>
-<script type="application/json" data-for="htmlwidget-922ddc175d4a54c8aac1">{"x":{"nodes":{"label":["GDP","Statistical\nDiscrepancy (I)","Income","Taxes"],"id":[1,2,3,4],"level":[0,1,1,1]},"edges":{"from":[1,1,1],"to":[2,3,4]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","font":{"size":16}},"manipulation":{"enabled":false},"layout":{"hierarchical":{"enabled":true,"direction":"UD","shakeTowards":"leaves"}},"edges":{"arrows":"to","scaling":{"label":{"enabled":false}}}},"groups":null,"width":600,"height":200,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":50000,"to":0},"algorithm":"hierarchical","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":true,"fit":false,"resetHighlight":true,"clusterOptions":{"fixed":true,"physics":true},"keepCoord":true,"labelSuffix":"(cluster)"},"tree":{"updateShape":true,"shapeVar":"dot","shapeY":"square"}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-aac82d7e2e79d1116c90" style="width:600px;height:200px;" class="visNetwork html-widget "></div>
+<script type="application/json" data-for="htmlwidget-aac82d7e2e79d1116c90">{"x":{"nodes":{"label":["GDP","Statistical\nDiscrepancy (I)","Income","Taxes"],"id":[1,2,3,4],"level":[0,1,1,1]},"edges":{"from":[1,1,1],"to":[2,3,4]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","font":{"size":16}},"manipulation":{"enabled":false},"layout":{"hierarchical":{"enabled":true,"direction":"UD","shakeTowards":"leaves"}},"edges":{"arrows":"to","scaling":{"label":{"enabled":false}}}},"groups":null,"width":600,"height":200,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":50000,"to":0},"algorithm":"hierarchical","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":true,"fit":false,"resetHighlight":true,"clusterOptions":{"fixed":true,"physics":true},"keepCoord":true,"labelSuffix":"(cluster)"},"tree":{"updateShape":true,"shapeVar":"dot","shapeY":"square"}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <ul>
 <li>Expenditure approach (E)</li>
 </ul>
-<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-19_ff6abc5ad18cd81ea1b2e834eb94020b">
+<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-20_f0f2591cb75f2753675315007cb0a739">
 <div class="cell-output-display">
-<div id="htmlwidget-77e19b5a2814d68fc0a9" style="width:600px;height:200px;" class="visNetwork html-widget "></div>
-<script type="application/json" data-for="htmlwidget-77e19b5a2814d68fc0a9">{"x":{"nodes":{"label":["GDP","Statistical\nDiscrepancy (E)","-Imports","Exports","Expenses"],"id":[1,2,3,4,5],"level":[0,1,1,1,1]},"edges":{"from":[1,1,1,1],"to":[2,3,4,5]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","font":{"size":16}},"manipulation":{"enabled":false},"layout":{"hierarchical":{"enabled":true,"direction":"UD","shakeTowards":"leaves"}},"edges":{"arrows":"to","scaling":{"label":{"enabled":false}}}},"groups":null,"width":600,"height":200,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":50000,"to":0},"algorithm":"hierarchical","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":true,"fit":false,"resetHighlight":true,"clusterOptions":{"fixed":true,"physics":true},"keepCoord":true,"labelSuffix":"(cluster)"},"tree":{"updateShape":true,"shapeVar":"dot","shapeY":"square"}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-40a3ec3bf9beac6b829d" style="width:600px;height:200px;" class="visNetwork html-widget "></div>
+<script type="application/json" data-for="htmlwidget-40a3ec3bf9beac6b829d">{"x":{"nodes":{"label":["GDP","Statistical\nDiscrepancy (E)","-Imports","Exports","Expenses"],"id":[1,2,3,4,5],"level":[0,1,1,1,1]},"edges":{"from":[1,1,1,1],"to":[2,3,4,5]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","font":{"size":16}},"manipulation":{"enabled":false},"layout":{"hierarchical":{"enabled":true,"direction":"UD","shakeTowards":"leaves"}},"edges":{"arrows":"to","scaling":{"label":{"enabled":false}}}},"groups":null,"width":600,"height":200,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":50000,"to":0},"algorithm":"hierarchical","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":true,"fit":false,"resetHighlight":true,"clusterOptions":{"fixed":true,"physics":true},"keepCoord":true,"labelSuffix":"(cluster)"},"tree":{"updateShape":true,"shapeVar":"dot","shapeY":"square"}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </div>
@@ -991,7 +1390,7 @@
 </div>
 
 <img data-src="backgrounds/oriento--OBffuUekfQ-unsplash.jpg" class="image-left r-stretch"></section>
-<section id="section-16" class="slide level2" data-auto-animate="true">
+<section id="section-22" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <div class="columns">
 <div class="column" style="width:40%;">
@@ -1009,10 +1408,10 @@
 <ul>
 <li>Combined approach (I &amp; E)</li>
 </ul>
-<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-20_a020c8798f70f800d98b9cb6a6264286">
+<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-21_fdb6d1928aece13aa59a12242f120f3f">
 <div class="cell-output-display">
-<div id="htmlwidget-129a6fdd8a368ad0045a" style="width:600px;height:400px;" class="visNetwork html-widget "></div>
-<script type="application/json" data-for="htmlwidget-129a6fdd8a368ad0045a">{"x":{"nodes":{"label":["GDP","Statistical\nDiscrepancy (I)","Income","Taxes","Statistical\nDiscrepancy (E)","-Imports","Exports","Expenses"],"id":[1,2,3,4,5,6,7,8],"x":[0.0181208309193075,0.8676001522280246,-0.7349134380824285,0.3967080063204802,0.09631010583399746,-1,-0.4959156544771076,1],"y":[-0.03547901733548309,0.5473023377285768,0.6735302376679089,-1,1,-0.1882988257743036,-0.9329726046020161,-0.3413304861903519]},"edges":{"from":[1,1,1,1,1,1,1],"to":[2,3,4,5,6,7,8],"color":["#C87A8A","#C87A8A","#C87A8A","#6B9D59","#6B9D59","#6B9D59","#6B9D59"]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","physics":false,"size":20},"manipulation":{"enabled":false},"edges":{"smooth":false,"width":3,"arrows":"to","scaling":{"label":{"enabled":false}}},"physics":{"stabilization":false}},"groups":null,"width":600,"height":400,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","igraphlayout":{"type":"square"},"highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":50000,"to":0},"algorithm":"all","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":false,"fit":false,"resetHighlight":true,"clusterOptions":null,"keepCoord":true,"labelSuffix":"(cluster)"},"tree":{"updateShape":true,"shapeVar":"dot","shapeY":"square"}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-207615cf39b08a67202c" style="width:600px;height:400px;" class="visNetwork html-widget "></div>
+<script type="application/json" data-for="htmlwidget-207615cf39b08a67202c">{"x":{"nodes":{"label":["GDP","Statistical\nDiscrepancy (I)","Income","Taxes","Statistical\nDiscrepancy (E)","-Imports","Exports","Expenses"],"id":[1,2,3,4,5,6,7,8],"x":[0.0181208309193075,0.8676001522280246,-0.7349134380824285,0.3967080063204802,0.09631010583399746,-1,-0.4959156544771076,1],"y":[-0.03547901733548309,0.5473023377285768,0.6735302376679089,-1,1,-0.1882988257743036,-0.9329726046020161,-0.3413304861903519]},"edges":{"from":[1,1,1,1,1,1,1],"to":[2,3,4,5,6,7,8],"color":["#C87A8A","#C87A8A","#C87A8A","#6B9D59","#6B9D59","#6B9D59","#6B9D59"]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","physics":false,"size":20},"manipulation":{"enabled":false},"edges":{"smooth":false,"width":3,"arrows":"to","scaling":{"label":{"enabled":false}}},"physics":{"stabilization":false}},"groups":null,"width":600,"height":400,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","igraphlayout":{"type":"square"},"highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":50000,"to":0},"algorithm":"all","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":false,"fit":false,"resetHighlight":true,"clusterOptions":null,"keepCoord":true,"labelSuffix":"(cluster)"},"tree":{"updateShape":true,"shapeVar":"dot","shapeY":"square"}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </div>
@@ -1022,7 +1421,7 @@
 </div>
 
 <img data-src="backgrounds/oriento--OBffuUekfQ-unsplash.jpg" class="image-left r-stretch"></section>
-<section id="section-17" class="slide level2 fragment-remove" data-auto-animate="true">
+<section id="section-23" class="slide level2 fragment-remove" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <div class="columns">
 <div class="column" style="width:40%;">
@@ -1040,18 +1439,18 @@
 <p>If the bottom level is too sparse, it is <strong>more complicated</strong> to model and reconciliation can <strong>worsen forecast accuracy</strong>.</p>
 <!-- Graph coherency allows us to ignore our problems (reconciling count data models) by trimming the leaf nodes of the graph. -->
 <div class="fragment fade-out" data-fragment-index="1">
-<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-21_0d35fa5493f21133ac541ad00c1172b6">
+<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-22_32f3e22e84f87b82512db94b5f99371b">
 <div class="cell-output-display">
-<div id="htmlwidget-63aecc3bb6cefd68438a" style="width:600px;height:400px;" class="visNetwork html-widget "></div>
-<script type="application/json" data-for="htmlwidget-63aecc3bb6cefd68438a">{"x":{"nodes":{"label":["Attendees","Domestic","International","Academia","Industry","Domestic\n& Academia","Domestic\n& Industry","International\n& Academia","International\n& Industry"],"id":[1,2,3,4,5,6,7,8,9],"x":[-0.003371926391818159,-0.8582194521345512,0.86356954610132,0.172705587374925,-0.1708640521216115,-0.6628108638547205,-1,1,0.6736804153398088],"y":[-0.01390576951516009,0.1644008084973776,-0.1675798740901829,0.8533471780243223,-0.8822395672944368,1,-0.6855433690152226,0.6766420294961848,-1]},"edges":{"from":[1,1,1,1,2,4,2,5,3,4,3,5],"to":[2,3,4,5,6,6,7,7,8,8,9,9],"color":["#C87A8A","#C87A8A","#6B9D59","#6B9D59","#C87A8A","#6B9D59","#C87A8A","#6B9D59","#C87A8A","#6B9D59","#C87A8A","#6B9D59"]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","physics":false,"size":20},"manipulation":{"enabled":false},"edges":{"smooth":false,"width":3,"arrows":"to","scaling":{"label":{"enabled":false}}},"physics":{"stabilization":false}},"groups":null,"width":600,"height":400,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","igraphlayout":{"type":"square"},"highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":50000,"to":0},"algorithm":"all","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":false,"fit":false,"resetHighlight":true,"clusterOptions":null,"keepCoord":true,"labelSuffix":"(cluster)"},"tree":{"updateShape":true,"shapeVar":"dot","shapeY":"square"}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-3ea692b0247d673ee070" style="width:600px;height:400px;" class="visNetwork html-widget "></div>
+<script type="application/json" data-for="htmlwidget-3ea692b0247d673ee070">{"x":{"nodes":{"label":["Attendees","Domestic","International","Academia","Industry","Domestic\n& Academia","Domestic\n& Industry","International\n& Academia","International\n& Industry"],"id":[1,2,3,4,5,6,7,8,9],"x":[-0.003371926391818159,-0.8582194521345512,0.86356954610132,0.172705587374925,-0.1708640521216115,-0.6628108638547205,-1,1,0.6736804153398088],"y":[-0.01390576951516009,0.1644008084973776,-0.1675798740901829,0.8533471780243223,-0.8822395672944368,1,-0.6855433690152226,0.6766420294961848,-1]},"edges":{"from":[1,1,1,1,2,4,2,5,3,4,3,5],"to":[2,3,4,5,6,6,7,7,8,8,9,9],"color":["#C87A8A","#C87A8A","#6B9D59","#6B9D59","#C87A8A","#6B9D59","#C87A8A","#6B9D59","#C87A8A","#6B9D59","#C87A8A","#6B9D59"]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","physics":false,"size":20},"manipulation":{"enabled":false},"edges":{"smooth":false,"width":3,"arrows":"to","scaling":{"label":{"enabled":false}}},"physics":{"stabilization":false}},"groups":null,"width":600,"height":400,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","igraphlayout":{"type":"square"},"highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":50000,"to":0},"algorithm":"all","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":false,"fit":false,"resetHighlight":true,"clusterOptions":null,"keepCoord":true,"labelSuffix":"(cluster)"},"tree":{"updateShape":true,"shapeVar":"dot","shapeY":"square"}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </div>
 <div class="fragment fade-up" data-fragment-index="1">
-<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-22_9f3b49ae81c65fcc261eaaec53769441">
+<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-23_66b26b22febd9dc836d0cb66816d399f">
 <div class="cell-output-display">
-<div id="htmlwidget-276e8ed6e39167da65de" style="width:600px;height:400px;" class="visNetwork html-widget "></div>
-<script type="application/json" data-for="htmlwidget-276e8ed6e39167da65de">{"x":{"nodes":{"label":["Attendees","Domestic","International","Academia","Industry"],"id":[1,2,3,4,5],"x":[-0.001759247510430439,0.4649221558329919,-1,1,-0.4701575758691139],"y":[-0.0004033440696582513,1,0.468617046048023,-0.4710768300799481,-1]},"edges":{"from":[1,1,1,1],"to":[2,3,4,5],"color":["#C87A8A","#C87A8A","#6B9D59","#6B9D59"]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","physics":false,"size":20},"manipulation":{"enabled":false},"edges":{"smooth":false,"width":3,"arrows":"to","scaling":{"label":{"enabled":false}}},"physics":{"stabilization":false}},"groups":null,"width":600,"height":400,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","igraphlayout":{"type":"square"},"highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":50000,"to":0},"algorithm":"all","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":false,"fit":false,"resetHighlight":true,"clusterOptions":null,"keepCoord":true,"labelSuffix":"(cluster)"},"tree":{"updateShape":true,"shapeVar":"dot","shapeY":"square"}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-7f30d2589f1eb3bca06c" style="width:600px;height:400px;" class="visNetwork html-widget "></div>
+<script type="application/json" data-for="htmlwidget-7f30d2589f1eb3bca06c">{"x":{"nodes":{"label":["Attendees","Domestic","International","Academia","Industry"],"id":[1,2,3,4,5],"x":[-0.001759247510430439,0.4649221558329919,-1,1,-0.4701575758691139],"y":[-0.0004033440696582513,1,0.468617046048023,-0.4710768300799481,-1]},"edges":{"from":[1,1,1,1],"to":[2,3,4,5],"color":["#C87A8A","#C87A8A","#6B9D59","#6B9D59"]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","physics":false,"size":20},"manipulation":{"enabled":false},"edges":{"smooth":false,"width":3,"arrows":"to","scaling":{"label":{"enabled":false}}},"physics":{"stabilization":false}},"groups":null,"width":600,"height":400,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","igraphlayout":{"type":"square"},"highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":50000,"to":0},"algorithm":"all","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":false,"fit":false,"resetHighlight":true,"clusterOptions":null,"keepCoord":true,"labelSuffix":"(cluster)"},"tree":{"updateShape":true,"shapeVar":"dot","shapeY":"square"}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </div>
@@ -1062,7 +1461,7 @@
 </div>
 
 <img data-src="backgrounds/oriento--OBffuUekfQ-unsplash.jpg" class="image-left r-stretch"></section>
-<section id="section-18" class="slide level2" data-auto-animate="true">
+<section id="section-24" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <div class="columns">
 <div class="column" style="width:60%;">
@@ -1080,7 +1479,7 @@
 </div>
 
 <img data-src="backgrounds/firosnv-photography-Rr3B0LH7W3k-unsplash.jpg" class="image-right r-stretch"></section>
-<section id="section-19" class="slide level2" data-auto-animate="true">
+<section id="section-25" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <div class="columns">
 <div class="column" style="width:60%;">
@@ -1096,10 +1495,10 @@
 <p>It makes no sense to aggregate folds of cross-validation.</p>
 <div class="fragment fade-in">
 <p>A suitable DAG for cross-validated hierarchies is</p>
-<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-23_b0f9d0b6419b1f998f23a0e00c917617">
+<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-24_5157282372c0adc00caf8df7d29652fc">
 <div class="cell-output-display">
-<div id="htmlwidget-b51549d44df33177e06f" style="width:600px;height:400px;" class="visNetwork html-widget "></div>
-<script type="application/json" data-for="htmlwidget-b51549d44df33177e06f">{"x":{"nodes":{"label":["Attendees\n(fold 1)","Academic\n(fold 1)","Industry\n(fold 1)","Attendees\n(fold 2)","Academic\n(fold 2)","Industry\n(fold 2)","Attendees\n(fold 3)","Academic\n(fold 3)","Industry\n(fold 3)"],"id":[1,2,3,4,5,6,7,8,9],"x":[-0.7771115886284494,-1,-0.5479317420191581,0.04555610562827783,0.5416865832808138,-0.4511010814451824,0.7336814933590186,0.4621687484879951,1],"y":[0.4508815641554542,-0.04886791008397484,0.9417089317630387,-0.9777716560130811,-0.9451423221379904,-1,0.5353849818406153,1,0.06400782226108581]},"edges":{"from":[1,1,4,4,7,7],"to":[2,3,5,6,8,9]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","physics":false,"size":20},"manipulation":{"enabled":false},"edges":{"smooth":false,"width":3,"arrows":"to","scaling":{"label":{"enabled":false}}},"physics":{"stabilization":false}},"groups":null,"width":600,"height":400,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","igraphlayout":{"type":"square"},"highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":50000,"to":0},"algorithm":"all","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":false,"fit":false,"resetHighlight":true,"clusterOptions":null,"keepCoord":true,"labelSuffix":"(cluster)"},"tree":{"updateShape":true,"shapeVar":"dot","shapeY":"square"}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-f5fd377a4a13c4c0746d" style="width:600px;height:400px;" class="visNetwork html-widget "></div>
+<script type="application/json" data-for="htmlwidget-f5fd377a4a13c4c0746d">{"x":{"nodes":{"label":["Attendees\n(fold 1)","Academic\n(fold 1)","Industry\n(fold 1)","Attendees\n(fold 2)","Academic\n(fold 2)","Industry\n(fold 2)","Attendees\n(fold 3)","Academic\n(fold 3)","Industry\n(fold 3)"],"id":[1,2,3,4,5,6,7,8,9],"x":[-0.7771115886284494,-1,-0.5479317420191581,0.04555610562827783,0.5416865832808138,-0.4511010814451824,0.7336814933590186,0.4621687484879951,1],"y":[0.4508815641554542,-0.04886791008397484,0.9417089317630387,-0.9777716560130811,-0.9451423221379904,-1,0.5353849818406153,1,0.06400782226108581]},"edges":{"from":[1,1,4,4,7,7],"to":[2,3,5,6,8,9]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","physics":false,"size":20},"manipulation":{"enabled":false},"edges":{"smooth":false,"width":3,"arrows":"to","scaling":{"label":{"enabled":false}}},"physics":{"stabilization":false}},"groups":null,"width":600,"height":400,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","igraphlayout":{"type":"square"},"highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":50000,"to":0},"algorithm":"all","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":false,"fit":false,"resetHighlight":true,"clusterOptions":null,"keepCoord":true,"labelSuffix":"(cluster)"},"tree":{"updateShape":true,"shapeVar":"dot","shapeY":"square"}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </div>
@@ -1113,7 +1512,7 @@
 </div>
 
 <img data-src="backgrounds/firosnv-photography-Rr3B0LH7W3k-unsplash.jpg" class="image-right r-stretch"></section>
-<section id="section-20" class="slide level2" data-auto-animate="true">
+<section id="section-26" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <div class="columns">
 <div class="column" style="width:60%;">
@@ -1129,10 +1528,10 @@
 <p><strong>Graph without a common top series</strong></p>
 </div>
 <div class="callout-content">
-<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-24_293fe21dc47d591d8f668eb8ca3e8d77">
+<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-25_7961c8b2aaa557d7a0ea7c4db19822fc">
 <div class="cell-output-display">
-<div id="htmlwidget-fb6148691a5592d82399" style="width:600px;height:400px;" class="visNetwork html-widget "></div>
-<script type="application/json" data-for="htmlwidget-fb6148691a5592d82399">{"x":{"nodes":{"label":["Facebook","Instagram","WhatsApp","Messenger","Oculus","","","","",""],"shape":["triangle","triangle","triangle","triangle","triangle","circle","circle","circle","circle","circle"],"id":[1,2,3,4,5,6,7,8,9,10],"x":[1,0.8090169943749475,0.3090169943749475,-0.3090169943749473,-0.8090169943749473,-1,-0.8090169943749476,-0.3090169943749476,0.3090169943749472,0.8090169943749475],"y":[0,0.6180339887498949,1,1,0.6180339887498951,2.220446049250313e-16,-0.6180339887498947,-0.9999999999999999,-1,-0.6180339887498951]},"edges":{"from":[1,1,1,2,2,3,3,4,4,5],"to":[6,7,8,9,10,6,7,8,9,10]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","physics":false,"size":20},"manipulation":{"enabled":false},"edges":{"smooth":false,"width":3,"arrows":"to","scaling":{"label":{"enabled":false}}},"physics":{"stabilization":false}},"groups":null,"width":600,"height":400,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","igraphlayout":{"type":"square"},"highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":50000,"to":0},"algorithm":"all","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":false,"fit":false,"resetHighlight":true,"clusterOptions":null,"keepCoord":true,"labelSuffix":"(cluster)"},"tree":{"updateShape":true,"shapeVar":"dot","shapeY":"square"}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-60ab31c5b5ce0eaefe9b" style="width:600px;height:400px;" class="visNetwork html-widget "></div>
+<script type="application/json" data-for="htmlwidget-60ab31c5b5ce0eaefe9b">{"x":{"nodes":{"label":["Facebook","Instagram","WhatsApp","Messenger","Oculus","","","","",""],"shape":["triangle","triangle","triangle","triangle","triangle","circle","circle","circle","circle","circle"],"id":[1,2,3,4,5,6,7,8,9,10],"x":[1,0.8090169943749475,0.3090169943749475,-0.3090169943749473,-0.8090169943749473,-1,-0.8090169943749476,-0.3090169943749476,0.3090169943749472,0.8090169943749475],"y":[0,0.6180339887498949,1,1,0.6180339887498951,2.220446049250313e-16,-0.6180339887498947,-0.9999999999999999,-1,-0.6180339887498951]},"edges":{"from":[1,1,1,2,2,3,3,4,4,5],"to":[6,7,8,9,10,6,7,8,9,10]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","physics":false,"size":20},"manipulation":{"enabled":false},"edges":{"smooth":false,"width":3,"arrows":"to","scaling":{"label":{"enabled":false}}},"physics":{"stabilization":false}},"groups":null,"width":600,"height":400,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","igraphlayout":{"type":"square"},"highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":50000,"to":0},"algorithm":"all","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":false,"fit":false,"resetHighlight":true,"clusterOptions":null,"keepCoord":true,"labelSuffix":"(cluster)"},"tree":{"updateShape":true,"shapeVar":"dot","shapeY":"square"}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </div>
@@ -1142,7 +1541,7 @@
 </div>
 
 <img data-src="backgrounds/PXL_20230908_083157452.jpg" class="image-right r-stretch"></section>
-<section id="section-21" class="slide level2" data-auto-animate="true">
+<section id="section-27" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <div class="columns">
 <div class="column" style="width:60%;">
@@ -1158,10 +1557,10 @@
 <p><strong>Adding Meta as the single parent results in a hierarchy</strong></p>
 </div>
 <div class="callout-content">
-<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-25_31f756a302ada18725e1b2aa265ca5b2">
+<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-26_d1f42ff4f4d559c5852be99ae2cd5414">
 <div class="cell-output-display">
-<div id="htmlwidget-e8a4455f2aea90e5dd69" style="width:600px;height:400px;" class="visNetwork html-widget "></div>
-<script type="application/json" data-for="htmlwidget-e8a4455f2aea90e5dd69">{"x":{"nodes":{"label":["Facebook","Instagram","WhatsApp","Messenger","Oculus","","","","","","Meta"],"shape":["triangle","triangle","triangle","triangle","triangle","circle","circle","circle","circle","circle","star"],"id":[1,2,3,4,5,6,7,8,9,10,11],"x":[-0.571124951733712,0.6896991221030009,-0.5503295009007478,0.146553883693229,0.5537200131579443,-1,-0.9089508891878479,-0.3634786477218064,0.6637360306906206,1,0.06168987497947809],"y":[0.02938562779538478,-0.01784534055795728,-0.6978283133735672,0.8416319207142804,-1,-0.1864096742582104,-0.866363405872039,1,0.9408184169156235,-0.7967512930882792,-0.2484499166846748]},"edges":{"from":[1,1,1,2,2,3,3,4,4,5,11,11,11,11,11],"to":[6,7,8,9,10,6,7,8,9,10,1,2,3,4,5]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","physics":false,"size":20},"manipulation":{"enabled":false},"edges":{"smooth":false,"width":3,"arrows":"to","scaling":{"label":{"enabled":false}}},"physics":{"stabilization":false}},"groups":null,"width":600,"height":400,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","igraphlayout":{"type":"square"},"highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":50000,"to":0},"algorithm":"all","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":false,"fit":false,"resetHighlight":true,"clusterOptions":null,"keepCoord":true,"labelSuffix":"(cluster)"},"tree":{"updateShape":true,"shapeVar":"dot","shapeY":"square"}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-7a6dcd3972a686419b18" style="width:600px;height:400px;" class="visNetwork html-widget "></div>
+<script type="application/json" data-for="htmlwidget-7a6dcd3972a686419b18">{"x":{"nodes":{"label":["Facebook","Instagram","WhatsApp","Messenger","Oculus","","","","","","Meta"],"shape":["triangle","triangle","triangle","triangle","triangle","circle","circle","circle","circle","circle","star"],"id":[1,2,3,4,5,6,7,8,9,10,11],"x":[-0.571124951733712,0.6896991221030009,-0.5503295009007478,0.146553883693229,0.5537200131579443,-1,-0.9089508891878479,-0.3634786477218064,0.6637360306906206,1,0.06168987497947809],"y":[0.02938562779538478,-0.01784534055795728,-0.6978283133735672,0.8416319207142804,-1,-0.1864096742582104,-0.866363405872039,1,0.9408184169156235,-0.7967512930882792,-0.2484499166846748]},"edges":{"from":[1,1,1,2,2,3,3,4,4,5,11,11,11,11,11],"to":[6,7,8,9,10,6,7,8,9,10,1,2,3,4,5]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","physics":false,"size":20},"manipulation":{"enabled":false},"edges":{"smooth":false,"width":3,"arrows":"to","scaling":{"label":{"enabled":false}}},"physics":{"stabilization":false}},"groups":null,"width":600,"height":400,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","igraphlayout":{"type":"square"},"highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":50000,"to":0},"algorithm":"all","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":false,"fit":false,"resetHighlight":true,"clusterOptions":null,"keepCoord":true,"labelSuffix":"(cluster)"},"tree":{"updateShape":true,"shapeVar":"dot","shapeY":"square"}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <p><em>Note that this isn’t a polytree, due to common/shared leafs.</em></p>
@@ -1172,40 +1571,7 @@
 </div>
 
 <img data-src="backgrounds/PXL_20230908_083157452.jpg" class="image-right r-stretch"></section>
-<section id="section-22" class="slide level2 fragment-remove">
-<h2></h2>
-<div class="columns">
-<div class="column" style="width:40%;">
-
-</div><div class="column" style="width:60%;">
-<h3 id="related-work">Related work</h3>
-<p>General linearly constrained time series <span class="citation" data-cites="girolimetto2023point">(<a href="#/references" role="doc-biblioref" onclick="">Girolimetto and Di Fonzo 2023</a>)</span></p>
-<div class="callout callout-tip callout-captioned callout-style-simple">
-<div class="callout-body">
-<div class="callout-caption">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Generalisation from zero-constrained representation</strong></p>
-</div>
-<div class="callout-content">
-<div class="fragment fade-out" data-fragment-index="1">
-<p><img data-src="resources/dani-matrix-constraint.png"></p>
-</div>
-<div class="fragment fade-up" data-fragment-index="1">
-<p><img data-src="resources/dani-graph-constraint.png"></p>
-</div>
-<div class="fragment fade-up" data-fragment-index="2">
-<p>For linear reconciliation, both graph coherence and ‘general linearly constrained’ coherence are equivalent.</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<p><img data-src="backgrounds/eilis-garvey-MskbR8VLNrA-unsplash.jpg" class="image-left"></p>
-</section>
-<section id="section-23" class="slide level2 fragment-remove">
+<section id="section-28" class="slide level2 fragment-remove">
 <h2></h2>
 <div class="columns">
 <div class="column" style="width:40%;">
@@ -1233,6 +1599,21 @@
 </div>
 </div>
 <div class="fragment fade-up" data-fragment-index="3">
+<div class="callout callout-paper callout-captioned callout-style-simple">
+<div class="callout-body">
+<div class="callout-caption">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Succinctly describe constraints with symbolic language</strong></p>
+</div>
+<div class="callout-content">
+<p>Similar to modelling interactions in R <span class="citation" data-cites="rcore">(<a href="#/references" role="doc-biblioref" onclick="">R Core Team 2021</a>)</span>, common aggregation structures are described with symbolic language <span class="citation" data-cites="wilkinson1973symbolic">(<a href="#/references" role="doc-biblioref" onclick="">Wilkinson and Rogers 1973</a>)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment fade-up" data-fragment-index="4">
 <div class="callout callout-warning callout-captioned callout-style-simple">
 <div class="callout-body">
 <div class="callout-caption">
@@ -1244,8 +1625,8 @@
 <div class="callout-content">
 <ul>
 <li>Tools for identifying sub-graphs for exploring series</li>
-<li><span class="fragment" data-fragment-index="4">Tools for changing the graph without removing data</span></li>
-<li><span class="fragment" data-fragment-index="5">Tools for validating operations which change the graph</span></li>
+<li><span class="fragment" data-fragment-index="5">Tools for changing the graph without removing data</span></li>
+<li><span class="fragment" data-fragment-index="6">Tools for validating operations which change the graph</span></li>
 </ul>
 </div>
 </div>
@@ -1255,17 +1636,17 @@
 </div>
 
 <img data-src="backgrounds/sander-weeteling-KABfjuSOx74-unsplash.jpg" class="image-left r-stretch"></section>
-<section id="section-24" class="slide level2" data-auto-animate="TRUE">
+<section id="section-29" class="slide level2" data-auto-animate="TRUE">
 <h2 data-id="quarto-animate-title"></h2>
 <div class="columns">
 <div class="column" style="width:40%;">
 
 </div><div class="column" style="width:60%;">
 <h3 id="examples-with-fable">Examples with fable</h3>
-<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-26_0e5eccbb3d743738157aacf1430b21b6">
+<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-27_529a80798c6d4448a9e8eef00d0c6bdb">
 
 </div>
-<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-27_5b5e170826a1adeef126e59512819ae6">
+<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-28_554caaba0359ef251cb549945e10473b">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb1-1" class="hljs-ln-code"><a href="#cb1-1"></a><span class="fu">library</span>(tsibble)</span>
 <span id="cb1-2" class="hljs-ln-code"><a href="#cb1-2"></a><span class="fu">library</span>(fable)</span>
 <span id="cb1-3" class="hljs-ln-code"><a href="#cb1-3"></a>tourism</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1291,14 +1672,14 @@
 </div>
 
 <img data-src="backgrounds/sander-weeteling-KABfjuSOx74-unsplash.jpg" class="image-left r-stretch"></section>
-<section id="section-25" class="slide level2" data-auto-animate="TRUE">
+<section id="section-30" class="slide level2" data-auto-animate="TRUE">
 <h2 data-id="quarto-animate-title"></h2>
 <div class="columns">
 <div class="column" style="width:40%;">
 
 </div><div class="column" style="width:60%;">
 <h3 id="examples-with-fable-1">Examples with fable</h3>
-<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-28_20ead00fad04246691deb4db682bcdbc">
+<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-29_8cfcd8aad8be1ab8e1237ee616a19a7f">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb3-1" class="hljs-ln-code"><a href="#cb3-1"></a>tourism <span class="sc">|&gt;</span> </span>
 <span id="cb3-2" class="hljs-ln-code"><a href="#cb3-2"></a>  <span class="fu">aggregate_key</span>(</span>
 <span id="cb3-3" class="hljs-ln-code"><a href="#cb3-3"></a>    Purpose <span class="sc">*</span> (State <span class="sc">/</span> Region),</span>
@@ -1326,14 +1707,14 @@
 </div>
 
 <img data-src="backgrounds/sander-weeteling-KABfjuSOx74-unsplash.jpg" class="image-left r-stretch"></section>
-<section id="section-26" class="slide level2" data-auto-animate="TRUE">
+<section id="section-31" class="slide level2" data-auto-animate="TRUE">
 <h2 data-id="quarto-animate-title"></h2>
 <div class="columns">
 <div class="column" style="width:40%;">
 
 </div><div class="column" style="width:60%;">
 <h3 id="examples-with-fable-2">Examples with fable</h3>
-<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-29_1eba1c3ede467fa4a9399d2e34bfa2f4">
+<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-30_8954efa8bfd759e15bd2b2b564150465">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb5-1" class="hljs-ln-code"><a href="#cb5-1"></a>tourism <span class="sc">|&gt;</span> </span>
 <span id="cb5-2" class="hljs-ln-code"><a href="#cb5-2"></a>  <span class="fu">aggregate_key</span>(</span>
 <span id="cb5-3" class="hljs-ln-code"><a href="#cb5-3"></a>    Purpose <span class="sc">*</span> (State <span class="sc">/</span> Region),</span>
@@ -1361,14 +1742,14 @@
 </div>
 
 <img data-src="backgrounds/sander-weeteling-KABfjuSOx74-unsplash.jpg" class="image-left r-stretch"></section>
-<section id="section-27" class="slide level2" data-auto-animate="TRUE">
+<section id="section-32" class="slide level2" data-auto-animate="TRUE">
 <h2 data-id="quarto-animate-title"></h2>
 <div class="columns">
 <div class="column" style="width:40%;">
 
 </div><div class="column" style="width:60%;">
 <h3 id="examples-with-fable-3">Examples with fable</h3>
-<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-30_a22834bdc3148a45884def730f129a3a">
+<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-31_f0ec4166c6a93b02536687ca7af6ef79">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb7-1" class="hljs-ln-code"><a href="#cb7-1"></a>tourism <span class="sc">|&gt;</span> </span>
 <span id="cb7-2" class="hljs-ln-code"><a href="#cb7-2"></a>  <span class="fu">aggregate_key</span>(</span>
 <span id="cb7-3" class="hljs-ln-code"><a href="#cb7-3"></a>    Purpose <span class="sc">*</span> State,</span>
@@ -1430,14 +1811,14 @@
 </div>
 
 <img data-src="backgrounds/sander-weeteling-KABfjuSOx74-unsplash.jpg" class="image-left r-stretch"></section>
-<section id="section-28" class="slide level2" data-auto-animate="TRUE">
+<section id="section-33" class="slide level2" data-auto-animate="TRUE">
 <h2 data-id="quarto-animate-title"></h2>
 <div class="columns">
 <div class="column" style="width:40%;">
 
 </div><div class="column" style="width:60%;">
 <h3 id="examples-with-fable-4">Examples with fable</h3>
-<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-31_7321e48f3cc3a8c17cc6c6f6a50caf1c">
+<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-32_797b65b8ffc376c1f1139fb3ea74c801">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb9-1" class="hljs-ln-code"><a href="#cb9-1"></a>tourism <span class="sc">|&gt;</span> </span>
 <span id="cb9-2" class="hljs-ln-code"><a href="#cb9-2"></a>  <span class="fu">aggregate_key</span>(</span>
 <span id="cb9-3" class="hljs-ln-code"><a href="#cb9-3"></a>    Purpose <span class="sc">:</span> State,</span>
@@ -1487,14 +1868,14 @@
 </div>
 
 <img data-src="backgrounds/sander-weeteling-KABfjuSOx74-unsplash.jpg" class="image-left r-stretch"></section>
-<section id="section-29" class="slide level2" data-auto-animate="TRUE">
+<section id="section-34" class="slide level2" data-auto-animate="TRUE">
 <h2 data-id="quarto-animate-title"></h2>
 <div class="columns">
 <div class="column" style="width:40%;">
 
 </div><div class="column" style="width:60%;">
 <h3 id="examples-with-fable-5">Examples with fable</h3>
-<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-32_880a9a9ee40ba4314c6cc3e0476ac176">
+<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-33_097eea195cc1e718a359e5e03e00c511">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb11-1" class="hljs-ln-code"><a href="#cb11-1"></a>tourism <span class="sc">|&gt;</span> </span>
 <span id="cb11-2" class="hljs-ln-code"><a href="#cb11-2"></a>  <span class="fu">aggregate_key</span>(</span>
 <span id="cb11-3" class="hljs-ln-code"><a href="#cb11-3"></a>    Purpose <span class="sc">+</span> State,</span>
@@ -1524,14 +1905,14 @@
 </div>
 
 <img data-src="backgrounds/sander-weeteling-KABfjuSOx74-unsplash.jpg" class="image-left r-stretch"></section>
-<section id="section-30" class="slide level2" data-auto-animate="TRUE">
+<section id="section-35" class="slide level2" data-auto-animate="TRUE">
 <h2 data-id="quarto-animate-title"></h2>
 <div class="columns">
 <div class="column" style="width:40%;">
 
 </div><div class="column" style="width:60%;">
 <h3 id="examples-with-fable-6">Examples with fable</h3>
-<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-33_a0e35d8005bf1d8df4fd7437e9816784">
+<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-34_8fce5ec225e0cdeeb88563a963248ded">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb13-1" class="hljs-ln-code"><a href="#cb13-1"></a>tourism <span class="sc">|&gt;</span> </span>
 <span id="cb13-2" class="hljs-ln-code"><a href="#cb13-2"></a>  <span class="fu">aggregate_key</span>(</span>
 <span id="cb13-3" class="hljs-ln-code"><a href="#cb13-3"></a>    <span class="dv">0</span> <span class="sc">+</span> Purpose <span class="sc">+</span> State,</span>
@@ -1560,14 +1941,14 @@
 </div>
 
 <img data-src="backgrounds/sander-weeteling-KABfjuSOx74-unsplash.jpg" class="image-left r-stretch"></section>
-<section id="section-31" class="slide level2" data-auto-animate="TRUE">
+<section id="section-36" class="slide level2" data-auto-animate="TRUE">
 <h2 data-id="quarto-animate-title"></h2>
 <div class="columns">
 <div class="column" style="width:40%;">
 
 </div><div class="column" style="width:60%;">
 <h3 id="examples-with-fable-7">Examples with fable</h3>
-<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-34_bac141ad92ed0a640fb560556140269f">
+<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-35_83151d30ab306d1f1f647283dc966391">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb15-1" class="hljs-ln-code"><a href="#cb15-1"></a>tourism <span class="sc">|&gt;</span> </span>
 <span id="cb15-2" class="hljs-ln-code"><a href="#cb15-2"></a>  <span class="fu">aggregate_key</span>(</span>
 <span id="cb15-3" class="hljs-ln-code"><a href="#cb15-3"></a>    Purpose,</span>
@@ -1615,14 +1996,14 @@
 </div>
 
 <img data-src="backgrounds/sander-weeteling-KABfjuSOx74-unsplash.jpg" class="image-left r-stretch"></section>
-<section id="section-32" class="slide level2" data-auto-animate="TRUE">
+<section id="section-37" class="slide level2" data-auto-animate="TRUE">
 <h2 data-id="quarto-animate-title"></h2>
 <div class="columns">
 <div class="column" style="width:40%;">
 
 </div><div class="column" style="width:60%;">
 <h3 id="examples-with-fable-8">Examples with fable</h3>
-<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-35_7be74170da19e3c1a466ef0548d965f8">
+<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-36_a2512ce256ccb3182008da93d56c422f">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb17-1" class="hljs-ln-code"><a href="#cb17-1"></a>tourism <span class="sc">|&gt;</span> </span>
 <span id="cb17-2" class="hljs-ln-code"><a href="#cb17-2"></a>  <span class="fu">aggregate_key</span>(</span>
 <span id="cb17-3" class="hljs-ln-code"><a href="#cb17-3"></a>    Purpose,</span>
@@ -1655,23 +2036,23 @@
 </div>
 
 <img data-src="backgrounds/sander-weeteling-KABfjuSOx74-unsplash.jpg" class="image-left r-stretch"></section>
-<section id="section-33" class="slide level2" data-auto-animate="TRUE">
+<section id="section-38" class="slide level2" data-auto-animate="TRUE">
 <h2 data-id="quarto-animate-title"></h2>
 <div class="columns">
 <div class="column" style="width:40%;">
 
 </div><div class="column" style="width:60%;">
 <h3 id="examples-with-fable-9">Examples with fable</h3>
-<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-36_1cf6a74d38bd4c6bd9a968d882ab0933">
+<div class="cell" data-hash="index_cache/revealjs/unnamed-chunk-37_d69d3acf334d5bbaee1f2ee37b6d6bfc">
 <div class="cell-output-display">
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-36-1.png" width="960"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-37-1.png" width="960"></p>
 </div>
 </div>
 </div>
 </div>
 <p><img data-src="backgrounds/sander-weeteling-KABfjuSOx74-unsplash.jpg" class="image-left"></p>
 </section>
-<section id="section-34" class="slide level2 fragment-remove">
+<section id="section-39" class="slide level2 fragment-remove">
 <h2></h2>
 <div class="columns">
 <div class="column" style="width:60%;">
@@ -1705,7 +2086,7 @@
 </div>
 <p><img data-src="backgrounds/meric-dagli-7NBO76G5JsE-unsplash.jpg" class="image-right"></p>
 </section>
-<section id="section-35" class="slide level2 fragment-remove">
+<section id="section-40" class="slide level2 fragment-remove">
 <h2></h2>
 <div class="columns">
 <div class="column" style="width:60%;">
@@ -1737,7 +2118,7 @@
 </div>
 <p><img data-src="backgrounds/meric-dagli-7NBO76G5JsE-unsplash.jpg" class="image-right"></p>
 </section>
-<section id="section-36" class="slide level2">
+<section id="section-41" class="slide level2">
 <h2></h2>
 <h3 id="what-else">What else?</h3>
 <div class="columns">
@@ -1875,6 +2256,21 @@ Athanasopoulos, George, Rob J. Hyndman, Nikolaos Kourentzes, and Fotios Petropou
 </div>
 <div id="ref-girolimetto2023point" class="csl-entry" role="doc-biblioentry">
 Girolimetto, Daniele, and Tommaso Di Fonzo. 2023. <span>“Point and Probabilistic Forecast Reconciliation for General Linearly Constrained Multiple Time Series.”</span> <a href="https://arxiv.org/abs/2305.05330">https://arxiv.org/abs/2305.05330</a>.
+</div>
+<div id="ref-hyndman2011" class="csl-entry" role="doc-biblioentry">
+Hyndman, Rob J., Roman A. Ahmed, George Athanasopoulos, and Han Lin Shang. 2011. <span>“Optimal Combination Forecasts for Hierarchical Time Series.”</span> <em>Comput. Stat. Data Anal.</em> 55 (9): 2579–89. <a href="https://doi.org/10.1016/j.csda.2011.03.006">https://doi.org/10.1016/j.csda.2011.03.006</a>.
+</div>
+<div id="ref-lyche2020numerical" class="csl-entry" role="doc-biblioentry">
+Lyche, Tom. 2020. <em>Numerical Linear Algebra and Matrix Factorizations</em>. Vol. 22. Springer Nature.
+</div>
+<div id="ref-meyer2023matrix" class="csl-entry" role="doc-biblioentry">
+Meyer, Carl D, and Ian Stewart. 2023. <em>Matrix Analysis and Applied Linear Algebra</em>. SIAM.
+</div>
+<div id="ref-rcore" class="csl-entry" role="doc-biblioentry">
+R Core Team. 2021. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.
+</div>
+<div id="ref-wilkinson1973symbolic" class="csl-entry" role="doc-biblioentry">
+Wilkinson, G. N., and C. E. Rogers. 1973. <span>“Symbolic Description of Factorial Models for Analysis of Variance.”</span> <em>Journal of the Royal Statistical Society. Series C (Applied Statistics)</em> 22 (3): 392–99. <a href="http://www.jstor.org/stable/2346786">http://www.jstor.org/stable/2346786</a>.
 </div>
 </div>
 </section>
